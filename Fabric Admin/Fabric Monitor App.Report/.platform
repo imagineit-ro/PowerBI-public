@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "Report",
+    "displayName": "Fabric Monitor App"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "45e2d984-2468-44fa-8667-4339a5aa6c94"
+  }
+}

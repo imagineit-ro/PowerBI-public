@@ -1,0 +1,3249 @@
+cultureInfo en-US
+
+	linguisticMetadata =
+			{
+			  "Version": "3.5.0",
+			  "Language": "en-US",
+			  "Entities": {
+			    "fabric_admin_workspace": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Fabric_admin_Workspaces"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "fabric admin workspace": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "Fabric_admin_Workspaces": {
+			            "Type": "Noun",
+			            "State": "Generated",
+			            "Weight": 0.99
+			          }
+			        },
+			        {
+			          "workspace": {
+			            "State": "Generated",
+			            "Weight": 0.97
+			          }
+			        },
+			        {
+			          "admin workspace": {
+			            "State": "Generated",
+			            "Weight": 0.97
+			          }
+			        },
+			        {
+			          "fabric admin workstation": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.508
+			          }
+			        },
+			        {
+			          "fabric admin cubicle": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.508
+			          }
+			        },
+			        {
+			          "fabric admin workplace": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.508
+			          }
+			        },
+			        {
+			          "fabric admin booth": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.508
+			          }
+			        },
+			        {
+			          "admin workstation": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.5
+			          }
+			        },
+			        {
+			          "admin cubicle": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.5
+			          }
+			        },
+			        {
+			          "admin workplace": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.5
+			          }
+			        },
+			        {
+			          "admin booth": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.5
+			          }
+			        },
+			        {
+			          "fabric admin desk": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.492
+			          }
+			        },
+			        {
+			          "fabric admin office": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.492
+			          }
+			        }
+			      ]
+			    },
+			    "fabric_admin_workspace.id": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Fabric_admin_Workspaces",
+			          "ConceptualProperty": "id"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "id": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "identification": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.736
+			          }
+			        },
+			        {
+			          "identity": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.736
+			          }
+			        },
+			        {
+			          "credential": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.714
+			          }
+			        }
+			      ],
+			      "NameType": "Identifier"
+			    },
+			    "fabric_admin_workspace.name": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Fabric_admin_Workspaces",
+			          "ConceptualProperty": "name"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "name": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "title": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.714
+			          }
+			        },
+			        {
+			          "label": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.714
+			          }
+			        },
+			        {
+			          "tag": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.714
+			          }
+			        }
+			      ],
+			      "NameType": "Name"
+			    },
+			    "fabric_admin_workspace.state": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Fabric_admin_Workspaces",
+			          "ConceptualProperty": "state"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {},
+			        {
+			          "location": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.736
+			          }
+			        },
+			        {
+			          "province": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.736
+			          }
+			        },
+			        {
+			          "territory": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.736
+			          }
+			        },
+			        {
+			          "nation": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.736
+			          }
+			        },
+			        {
+			          "condition": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.714
+			          }
+			        },
+			        {
+			          "country": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.714
+			          }
+			        }
+			      ]
+			    },
+			    "fabric_admin_workspace.type": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Fabric_admin_Workspaces",
+			          "ConceptualProperty": "type"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "type": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "category": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.736
+			          }
+			        },
+			        {
+			          "genre": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.736
+			          }
+			        },
+			        {
+			          "manner": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.736
+			          }
+			        },
+			        {
+			          "variety": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.736
+			          }
+			        },
+			        {
+			          "brand": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.714
+			          }
+			        },
+			        {
+			          "class": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.714
+			          }
+			        },
+			        {
+			          "kind": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.714
+			          }
+			        },
+			        {
+			          "style": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.714
+			          }
+			        },
+			        {
+			          "form": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.714
+			          }
+			        },
+			        {
+			          "grouping": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.714
+			          }
+			        }
+			      ]
+			    },
+			    "fabric_admin_workspace.capacity_id": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Fabric_admin_Workspaces",
+			          "ConceptualProperty": "capacityId"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "capacity id": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "capacityId": {
+			            "Type": "Noun",
+			            "State": "Generated",
+			            "Weight": 0.99
+			          }
+			        },
+			        {
+			          "capacity": {
+			            "State": "Generated",
+			            "Weight": 0.97
+			          }
+			        },
+			        {
+			          "capacity identification": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.75
+			          }
+			        },
+			        {
+			          "capacity identity": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.75
+			          }
+			        },
+			        {
+			          "capacity identifier": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.75
+			          }
+			        },
+			        {
+			          "capacity credential": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.727
+			          }
+			        },
+			        {
+			          "volume": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.491
+			          }
+			        },
+			        {
+			          "size": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.476
+			          }
+			        },
+			        {
+			          "bulk": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.476
+			          }
+			        },
+			        {
+			          "ability": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.466
+			          }
+			        },
+			        {
+			          "capability": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.466
+			          }
+			        },
+			        {
+			          "aptitude": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.466
+			          }
+			        }
+			      ]
+			    },
+			    "fabric_admin_domain": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Fabric_admin_Domains"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "fabric admin domain": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "Fabric_admin_Domains": {
+			            "Type": "Noun",
+			            "State": "Generated",
+			            "Weight": 0.99
+			          }
+			        },
+			        {
+			          "domain": {
+			            "State": "Generated",
+			            "Weight": 0.97
+			          }
+			        },
+			        {
+			          "admin domain": {
+			            "State": "Generated",
+			            "Weight": 0.97
+			          }
+			        },
+			        {
+			          "fabric admin province": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.508
+			          }
+			        },
+			        {
+			          "fabric admin realm": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.508
+			          }
+			        },
+			        {
+			          "fabric admin dominion": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.508
+			          }
+			        },
+			        {
+			          "fabric admin territory": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.508
+			          }
+			        },
+			        {
+			          "fabric admin purview": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.508
+			          }
+			        },
+			        {
+			          "admin province": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.5
+			          }
+			        },
+			        {
+			          "admin realm": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.5
+			          }
+			        },
+			        {
+			          "admin dominion": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.5
+			          }
+			        },
+			        {
+			          "admin territory": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.5
+			          }
+			        },
+			        {
+			          "admin purview": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.5
+			          }
+			        }
+			      ]
+			    },
+			    "fabric_admin_domain.id": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Fabric_admin_Domains",
+			          "ConceptualProperty": "id"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "id": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "identification": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.736
+			          }
+			        },
+			        {
+			          "identity": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.736
+			          }
+			        },
+			        {
+			          "credential": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.714
+			          }
+			        }
+			      ],
+			      "NameType": "Identifier"
+			    },
+			    "fabric_admin_domain.display_name": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Fabric_admin_Domains",
+			          "ConceptualProperty": "displayName"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "display name": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "displayName": {
+			            "Type": "Noun",
+			            "State": "Generated",
+			            "Weight": 0.99
+			          }
+			        },
+			        {
+			          "display nickname": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.727
+			          }
+			        },
+			        {
+			          "display title": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.727
+			          }
+			        },
+			        {
+			          "display label": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.727
+			          }
+			        },
+			        {
+			          "display tag": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.727
+			          }
+			        }
+			      ]
+			    },
+			    "fabric_admin_domain.description": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Fabric_admin_Domains",
+			          "ConceptualProperty": "description"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "description": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "appearance": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.736
+			          }
+			        },
+			        {
+			          "descriptor": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.736
+			          }
+			        },
+			        {
+			          "explanation": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.736
+			          }
+			        },
+			        {
+			          "specification": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.736
+			          }
+			        },
+			        {
+			          "account": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.714
+			          }
+			        },
+			        {
+			          "overview": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.714
+			          }
+			        },
+			        {
+			          "report": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.714
+			          }
+			        }
+			      ]
+			    },
+			    "fabric_admin_domain.parent_domain_id": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Fabric_admin_Domains",
+			          "ConceptualProperty": "parentDomainId"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "parent domain id": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "id": {
+			            "State": "Generated",
+			            "Weight": 0.97
+			          }
+			        },
+			        {
+			          "parentDomainId": {
+			            "Type": "Noun",
+			            "State": "Generated",
+			            "Weight": 0.99
+			          }
+			        },
+			        {
+			          "domain": {
+			            "State": "Generated",
+			            "Weight": 0.97
+			          }
+			        },
+			        {
+			          "parent domain": {
+			            "State": "Generated",
+			            "Weight": 0.97
+			          }
+			        },
+			        {
+			          "domain id": {
+			            "State": "Generated",
+			            "Weight": 0.97
+			          }
+			        },
+			        {
+			          "parent domain identification": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.762
+			          }
+			        },
+			        {
+			          "parent domain identity": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.762
+			          }
+			        },
+			        {
+			          "parent domain identifier": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.762
+			          }
+			        },
+			        {
+			          "domain identification": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.75
+			          }
+			        },
+			        {
+			          "domain identity": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.75
+			          }
+			        },
+			        {
+			          "domain identifier": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.75
+			          }
+			        },
+			        {
+			          "parent domain credential": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.739
+			          }
+			        },
+			        {
+			          "domain credential": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.727
+			          }
+			        },
+			        {
+			          "parent province": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.5
+			          }
+			        },
+			        {
+			          "parent realm": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.5
+			          }
+			        }
+			      ],
+			      "NameType": "Identifier"
+			    },
+			    "fabric_admin_domain.contributors_scope": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Fabric_admin_Domains",
+			          "ConceptualProperty": "contributorsScope"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "contributors scope": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "contributor scope": {
+			            "Type": "Noun",
+			            "State": "Generated",
+			            "Weight": 0.78
+			          }
+			        },
+			        {
+			          "contributorsScope": {
+			            "Type": "Noun",
+			            "State": "Generated",
+			            "Weight": 0.99
+			          }
+			        },
+			        {
+			          "scope": {
+			            "State": "Generated",
+			            "Weight": 0.97
+			          }
+			        },
+			        {
+			          "contributor possibility": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.5
+			          }
+			        },
+			        {
+			          "contributor opportunity": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.5
+			          }
+			        },
+			        {
+			          "contributor latitude": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.5
+			          }
+			        },
+			        {
+			          "possibility": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.491
+			          }
+			        },
+			        {
+			          "opportunity": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.491
+			          }
+			        },
+			        {
+			          "latitude": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.491
+			          }
+			        },
+			        {
+			          "contributor choice": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.485
+			          }
+			        },
+			        {
+			          "contributor room": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.485
+			          }
+			        },
+			        {
+			          "contributor space": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.485
+			          }
+			        },
+			        {
+			          "choice": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.476
+			          }
+			        }
+			      ]
+			    },
+			    "PBI_admin_workspace": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "PBI_admin_Workspaces"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "PBI admin workspace": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "PBI_admin_Workspaces": {
+			            "Type": "Noun",
+			            "State": "Generated",
+			            "Weight": 0.99
+			          }
+			        },
+			        {
+			          "workspace": {
+			            "State": "Generated",
+			            "Weight": 0.97
+			          }
+			        },
+			        {
+			          "admin workspace": {
+			            "State": "Generated",
+			            "Weight": 0.97
+			          }
+			        },
+			        {
+			          "pbi admin workstation": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.508
+			          }
+			        },
+			        {
+			          "pbi admin cubicle": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.508
+			          }
+			        },
+			        {
+			          "pbi admin workplace": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.508
+			          }
+			        },
+			        {
+			          "pbi admin booth": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.508
+			          }
+			        },
+			        {
+			          "admin workstation": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.5
+			          }
+			        },
+			        {
+			          "admin cubicle": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.5
+			          }
+			        },
+			        {
+			          "admin workplace": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.5
+			          }
+			        },
+			        {
+			          "admin booth": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.5
+			          }
+			        },
+			        {
+			          "pbi admin desk": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.492
+			          }
+			        },
+			        {
+			          "pbi admin office": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.492
+			          }
+			        }
+			      ]
+			    },
+			    "PBI_admin_workspace.id": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "PBI_admin_Workspaces",
+			          "ConceptualProperty": "id"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "id": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "identification": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.736
+			          }
+			        },
+			        {
+			          "identity": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.736
+			          }
+			        },
+			        {
+			          "credential": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.714
+			          }
+			        }
+			      ],
+			      "NameType": "Identifier"
+			    },
+			    "PBI_admin_workspace.is_read_only": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "PBI_admin_Workspaces",
+			          "ConceptualProperty": "isReadOnly"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "is read only": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "isReadOnly": {
+			            "Type": "Noun",
+			            "State": "Generated",
+			            "Weight": 0.99
+			          }
+			        }
+			      ]
+			    },
+			    "PBI_admin_workspace.is_on_dedicated_capacity": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "PBI_admin_Workspaces",
+			          "ConceptualProperty": "isOnDedicatedCapacity"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "is on dedicated capacity": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "isOnDedicatedCapacity": {
+			            "Type": "Noun",
+			            "State": "Generated",
+			            "Weight": 0.99
+			          }
+			        }
+			      ]
+			    },
+			    "PBI_admin_workspace.capacity_migration_status": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "PBI_admin_Workspaces",
+			          "ConceptualProperty": "capacityMigrationStatus"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "capacity migration status": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "capacityMigrationStatus": {
+			            "Type": "Noun",
+			            "State": "Generated",
+			            "Weight": 0.99
+			          }
+			        },
+			        {
+			          "status": {
+			            "State": "Generated",
+			            "Weight": 0.97
+			          }
+			        },
+			        {
+			          "migration status": {
+			            "State": "Generated",
+			            "Weight": 0.97
+			          }
+			        },
+			        {
+			          "capacity migration category": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.762
+			          }
+			        },
+			        {
+			          "capacity migration importance": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.762
+			          }
+			        },
+			        {
+			          "capacity migration prestige": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.762
+			          }
+			        },
+			        {
+			          "capacity migration prominence": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.762
+			          }
+			        },
+			        {
+			          "migration category": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.75
+			          }
+			        },
+			        {
+			          "migration importance": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.75
+			          }
+			        },
+			        {
+			          "migration prestige": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.75
+			          }
+			        },
+			        {
+			          "migration prominence": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.75
+			          }
+			        },
+			        {
+			          "capacity migration condition": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.739
+			          }
+			        },
+			        {
+			          "capacity migration class": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.739
+			          }
+			        }
+			      ]
+			    },
+			    "PBI_admin_workspace.type": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "PBI_admin_Workspaces",
+			          "ConceptualProperty": "type"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "type": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "category": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.736
+			          }
+			        },
+			        {
+			          "genre": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.736
+			          }
+			        },
+			        {
+			          "manner": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.736
+			          }
+			        },
+			        {
+			          "variety": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.736
+			          }
+			        },
+			        {
+			          "brand": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.714
+			          }
+			        },
+			        {
+			          "class": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.714
+			          }
+			        },
+			        {
+			          "kind": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.714
+			          }
+			        },
+			        {
+			          "style": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.714
+			          }
+			        },
+			        {
+			          "form": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.714
+			          }
+			        },
+			        {
+			          "grouping": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.714
+			          }
+			        }
+			      ]
+			    },
+			    "PBI_admin_workspace.state": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "PBI_admin_Workspaces",
+			          "ConceptualProperty": "state"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {},
+			        {
+			          "location": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.736
+			          }
+			        },
+			        {
+			          "province": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.736
+			          }
+			        },
+			        {
+			          "territory": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.736
+			          }
+			        },
+			        {
+			          "nation": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.736
+			          }
+			        },
+			        {
+			          "condition": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.714
+			          }
+			        },
+			        {
+			          "country": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.714
+			          }
+			        }
+			      ]
+			    },
+			    "PBI_admin_workspace.has_workspace_level_setting": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "PBI_admin_Workspaces",
+			          "ConceptualProperty": "hasWorkspaceLevelSettings "
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "has workspace level setting": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "hasWorkspaceLevelSettings": {
+			            "Type": "Noun",
+			            "State": "Generated",
+			            "Weight": 0.99
+			          }
+			        },
+			        {
+			          "hasWorkspaceLevelSetting": {
+			            "Type": "Noun",
+			            "State": "Generated",
+			            "Weight": 0.749034
+			          }
+			        },
+			        {
+			          "has workspace quantity setting": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.771
+			          }
+			        },
+			        {
+			          "has workspace threshold setting": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.771
+			          }
+			        },
+			        {
+			          "has workspace amount setting": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.748
+			          }
+			        },
+			        {
+			          "has workspace grade setting": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.748
+			          }
+			        },
+			        {
+			          "has workspace point setting": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.748
+			          }
+			        },
+			        {
+			          "has workspace rank setting": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.748
+			          }
+			        },
+			        {
+			          "has workspace tier setting": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.748
+			          }
+			        },
+			        {
+			          "has workstation level setting": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.514
+			          }
+			        },
+			        {
+			          "has workspace level location": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.514
+			          }
+			        },
+			        {
+			          "has workspace level scenery": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.514
+			          }
+			        }
+			      ]
+			    },
+			    "PBI_admin_workspace.name": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "PBI_admin_Workspaces",
+			          "ConceptualProperty": "name"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "name": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "title": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.714
+			          }
+			        },
+			        {
+			          "label": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.714
+			          }
+			        },
+			        {
+			          "tag": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.714
+			          }
+			        }
+			      ],
+			      "NameType": "Name"
+			    },
+			    "v_Measures_measure": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "_Measures"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "_measure": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "_ degree": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.5
+			          }
+			        },
+			        {
+			          "_ quantity": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.5
+			          }
+			        },
+			        {
+			          "_ quota": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.5
+			          }
+			        },
+			        {
+			          "_ extent": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.5
+			          }
+			        },
+			        {
+			          "_ amount": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.485
+			          }
+			        },
+			        {
+			          "_ portion": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.485
+			          }
+			        },
+			        {
+			          "_ ration": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.485
+			          }
+			        },
+			        {
+			          "_ size": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.485
+			          }
+			        }
+			      ]
+			    },
+			    "v_Measures_measure.list": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "_Measures",
+			          "ConceptualProperty": "List"
+			        }
+			      },
+			      "State": "Generated",
+			      "Visibility": {
+			        "Value": "Hidden"
+			      },
+			      "Terms": [
+			        {
+			          "list": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "chronology": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.736
+			          }
+			        },
+			        {
+			          "directory": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.714
+			          }
+			        },
+			        {
+			          "catalog": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.714
+			          }
+			        },
+			        {
+			          "catalogue": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.714
+			          }
+			        },
+			        {
+			          "inventory": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.714
+			          }
+			        },
+			        {
+			          "record": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.714
+			          }
+			        }
+			      ]
+			    },
+			    "v_Measures_measure.domains_is_top": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "_Measures",
+			          "ConceptualProperty": "__Domains_IsTop"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "domains is top": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "__Domains_IsTop": {
+			            "Type": "Noun",
+			            "State": "Generated",
+			            "Weight": 0.99
+			          }
+			        },
+			        {
+			          "is top": {
+			            "State": "Generated",
+			            "Weight": 0.97
+			          }
+			        },
+			        {
+			          "domain is best": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.739
+			          }
+			        },
+			        {
+			          "domain is first": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.739
+			          }
+			        },
+			        {
+			          "domain is leading": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.739
+			          }
+			        },
+			        {
+			          "domain is maximum": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.739
+			          }
+			        },
+			        {
+			          "domain is peak": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.739
+			          }
+			        },
+			        {
+			          "domain is upper": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.739
+			          }
+			        },
+			        {
+			          "is best": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.727
+			          }
+			        },
+			        {
+			          "is first": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.727
+			          }
+			        },
+			        {
+			          "is leading": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.727
+			          }
+			        },
+			        {
+			          "is maximum": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.727
+			          }
+			        },
+			        {
+			          "Parent Domains": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "v_Measures_measure.domains_is_child": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "_Measures",
+			          "ConceptualProperty": "__Domains_IsChild"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "domains is child": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "__Domains_IsChild": {
+			            "Type": "Noun",
+			            "State": "Generated",
+			            "Weight": 0.99
+			          }
+			        },
+			        {
+			          "child": {
+			            "State": "Generated",
+			            "Weight": 0.97
+			          }
+			        },
+			        {
+			          "is child": {
+			            "State": "Generated",
+			            "Weight": 0.97
+			          }
+			        },
+			        {
+			          "domain is youngster": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.508
+			          }
+			        },
+			        {
+			          "domain is teenager": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.508
+			          }
+			        },
+			        {
+			          "domain is nipper": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.508
+			          }
+			        },
+			        {
+			          "is youngster": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.5
+			          }
+			        },
+			        {
+			          "is teenager": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.5
+			          }
+			        },
+			        {
+			          "is nipper": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.5
+			          }
+			        },
+			        {
+			          "domain is kid": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.492
+			          }
+			        },
+			        {
+			          "domain is teen-ager": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.492
+			          }
+			        },
+			        {
+			          "domain is teen": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.492
+			          }
+			        },
+			        {
+			          "domain is adolescent": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.492
+			          }
+			        },
+			        {
+			          "Child Domains": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    }
+			  },
+			  "Relationships": {
+			    "PBI_admin_workspace_has_id": {
+			      "Binding": {
+			        "ConceptualEntity": "PBI_admin_Workspaces"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "PBI_admin_workspace": {
+			          "Target": {
+			            "Entity": "PBI_admin_workspace"
+			          }
+			        },
+			        "PBI_admin_workspace.id": {
+			          "Target": {
+			            "Entity": "PBI_admin_workspace.id"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "PBI_admin_workspace"
+			            },
+			            "Object": {
+			              "Role": "PBI_admin_workspace.id"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "PBI_admin_workspaces_have_ids"
+			        },
+			        {
+			          "Name": {
+			            "Subject": {
+			              "Role": "PBI_admin_workspace"
+			            },
+			            "Name": {
+			              "Role": "PBI_admin_workspace.id"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "ids_are_names_IDs_of_PBI_admin_workspaces"
+			        }
+			      ]
+			    },
+			    "fabric_admin_domain_has_contributors_scope": {
+			      "Binding": {
+			        "ConceptualEntity": "Fabric_admin_Domains"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "fabric_admin_domain": {
+			          "Target": {
+			            "Entity": "fabric_admin_domain"
+			          }
+			        },
+			        "fabric_admin_domain.contributors_scope": {
+			          "Target": {
+			            "Entity": "fabric_admin_domain.contributors_scope"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "fabric_admin_domain"
+			            },
+			            "Object": {
+			              "Role": "fabric_admin_domain.contributors_scope"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "fabric_admin_domains_have_contributors_scopes"
+			        }
+			      ]
+			    },
+			    "fabric_admin_domain_has_parent_domain_id": {
+			      "Binding": {
+			        "ConceptualEntity": "Fabric_admin_Domains"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "fabric_admin_domain": {
+			          "Target": {
+			            "Entity": "fabric_admin_domain"
+			          }
+			        },
+			        "fabric_admin_domain.parent_domain_id": {
+			          "Target": {
+			            "Entity": "fabric_admin_domain.parent_domain_id"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "fabric_admin_domain"
+			            },
+			            "Object": {
+			              "Role": "fabric_admin_domain.parent_domain_id"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "fabric_admin_domains_have_parent_domain_ids"
+			        },
+			        {
+			          "Name": {
+			            "Subject": {
+			              "Role": "fabric_admin_domain"
+			            },
+			            "Name": {
+			              "Role": "fabric_admin_domain.parent_domain_id"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "parent_domain_ids_are_names_IDs_of_fabric_admin_domains"
+			        }
+			      ]
+			    },
+			    "fabric_admin_domain_has_description": {
+			      "Binding": {
+			        "ConceptualEntity": "Fabric_admin_Domains"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "fabric_admin_domain": {
+			          "Target": {
+			            "Entity": "fabric_admin_domain"
+			          }
+			        },
+			        "fabric_admin_domain.description": {
+			          "Target": {
+			            "Entity": "fabric_admin_domain.description"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "fabric_admin_domain"
+			            },
+			            "Object": {
+			              "Role": "fabric_admin_domain.description"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "fabric_admin_domains_have_descriptions"
+			        }
+			      ]
+			    },
+			    "fabric_admin_domain_has_display_name": {
+			      "Binding": {
+			        "ConceptualEntity": "Fabric_admin_Domains"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "fabric_admin_domain": {
+			          "Target": {
+			            "Entity": "fabric_admin_domain"
+			          }
+			        },
+			        "fabric_admin_domain.display_name": {
+			          "Target": {
+			            "Entity": "fabric_admin_domain.display_name"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "fabric_admin_domain"
+			            },
+			            "Object": {
+			              "Role": "fabric_admin_domain.display_name"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "fabric_admin_domains_have_display_names"
+			        }
+			      ]
+			    },
+			    "fabric_admin_domain_has_id": {
+			      "Binding": {
+			        "ConceptualEntity": "Fabric_admin_Domains"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "fabric_admin_domain": {
+			          "Target": {
+			            "Entity": "fabric_admin_domain"
+			          }
+			        },
+			        "fabric_admin_domain.id": {
+			          "Target": {
+			            "Entity": "fabric_admin_domain.id"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "fabric_admin_domain"
+			            },
+			            "Object": {
+			              "Role": "fabric_admin_domain.id"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "fabric_admin_domains_have_ids"
+			        },
+			        {
+			          "Name": {
+			            "Subject": {
+			              "Role": "fabric_admin_domain"
+			            },
+			            "Name": {
+			              "Role": "fabric_admin_domain.id"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "ids_are_names_IDs_of_fabric_admin_domains"
+			        }
+			      ]
+			    },
+			    "fabric_admin_workspace_has_capacity_id": {
+			      "Binding": {
+			        "ConceptualEntity": "Fabric_admin_Workspaces"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "fabric_admin_workspace": {
+			          "Target": {
+			            "Entity": "fabric_admin_workspace"
+			          }
+			        },
+			        "fabric_admin_workspace.capacity_id": {
+			          "Target": {
+			            "Entity": "fabric_admin_workspace.capacity_id"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "fabric_admin_workspace"
+			            },
+			            "Object": {
+			              "Role": "fabric_admin_workspace.capacity_id"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "fabric_admin_workspaces_have_capacity_ids"
+			        }
+			      ]
+			    },
+			    "fabric_admin_workspace_has_type": {
+			      "Binding": {
+			        "ConceptualEntity": "Fabric_admin_Workspaces"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "fabric_admin_workspace": {
+			          "Target": {
+			            "Entity": "fabric_admin_workspace"
+			          }
+			        },
+			        "fabric_admin_workspace.type": {
+			          "Target": {
+			            "Entity": "fabric_admin_workspace.type"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "fabric_admin_workspace"
+			            },
+			            "Object": {
+			              "Role": "fabric_admin_workspace.type"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "fabric_admin_workspaces_have_types"
+			        }
+			      ]
+			    },
+			    "fabric_admin_workspace_has_state": {
+			      "Binding": {
+			        "ConceptualEntity": "Fabric_admin_Workspaces"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "fabric_admin_workspace": {
+			          "Target": {
+			            "Entity": "fabric_admin_workspace"
+			          }
+			        },
+			        "fabric_admin_workspace.state": {
+			          "Target": {
+			            "Entity": "fabric_admin_workspace.state"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "fabric_admin_workspace"
+			            },
+			            "Object": {
+			              "Role": "fabric_admin_workspace.state"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "fabric_admin_workspaces_have_states"
+			        }
+			      ]
+			    },
+			    "fabric_admin_workspace_has_name": {
+			      "Binding": {
+			        "ConceptualEntity": "Fabric_admin_Workspaces"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "fabric_admin_workspace": {
+			          "Target": {
+			            "Entity": "fabric_admin_workspace"
+			          }
+			        },
+			        "fabric_admin_workspace.name": {
+			          "Target": {
+			            "Entity": "fabric_admin_workspace.name"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "fabric_admin_workspace"
+			            },
+			            "Object": {
+			              "Role": "fabric_admin_workspace.name"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "fabric_admin_workspaces_have_names"
+			        },
+			        {
+			          "Name": {
+			            "Subject": {
+			              "Role": "fabric_admin_workspace"
+			            },
+			            "Name": {
+			              "Role": "fabric_admin_workspace.name"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "names_are_names_IDs_of_fabric_admin_workspaces"
+			        }
+			      ]
+			    },
+			    "fabric_admin_workspace_has_id": {
+			      "Binding": {
+			        "ConceptualEntity": "Fabric_admin_Workspaces"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "fabric_admin_workspace": {
+			          "Target": {
+			            "Entity": "fabric_admin_workspace"
+			          }
+			        },
+			        "fabric_admin_workspace.id": {
+			          "Target": {
+			            "Entity": "fabric_admin_workspace.id"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "fabric_admin_workspace"
+			            },
+			            "Object": {
+			              "Role": "fabric_admin_workspace.id"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "fabric_admin_workspaces_have_ids"
+			        },
+			        {
+			          "Name": {
+			            "Subject": {
+			              "Role": "fabric_admin_workspace"
+			            },
+			            "Name": {
+			              "Role": "fabric_admin_workspace.id"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "ids_are_names_IDs_of_fabric_admin_workspaces"
+			        }
+			      ]
+			    },
+			    "PBI_admin_workspace_in_state": {
+			      "Binding": {
+			        "ConceptualEntity": "PBI_admin_Workspaces"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "PBI_admin_workspace": {
+			          "Target": {
+			            "Entity": "PBI_admin_workspace"
+			          }
+			        },
+			        "PBI_admin_workspace.state": {
+			          "Target": {
+			            "Entity": "PBI_admin_workspace.state"
+			          }
+			        }
+			      },
+			      "SemanticSlots": {
+			        "Where": {
+			          "Role": "PBI_admin_workspace.state"
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Preposition": {
+			            "Subject": {
+			              "Role": "PBI_admin_workspace"
+			            },
+			            "Prepositions": [
+			              {
+			                "in": {
+			                  "State": "Generated"
+			                }
+			              }
+			            ],
+			            "Object": {
+			              "Role": "PBI_admin_workspace.state"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "PBI_admin_workspaces_are_in_states"
+			        }
+			      ]
+			    },
+			    "fabric_admin_workspace_in_state": {
+			      "Binding": {
+			        "ConceptualEntity": "Fabric_admin_Workspaces"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "fabric_admin_workspace": {
+			          "Target": {
+			            "Entity": "fabric_admin_workspace"
+			          }
+			        },
+			        "fabric_admin_workspace.state": {
+			          "Target": {
+			            "Entity": "fabric_admin_workspace.state"
+			          }
+			        }
+			      },
+			      "SemanticSlots": {
+			        "Where": {
+			          "Role": "fabric_admin_workspace.state"
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Preposition": {
+			            "Subject": {
+			              "Role": "fabric_admin_workspace"
+			            },
+			            "Prepositions": [
+			              {
+			                "in": {
+			                  "State": "Generated"
+			                }
+			              }
+			            ],
+			            "Object": {
+			              "Role": "fabric_admin_workspace.state"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "fabric_admin_workspaces_are_in_states"
+			        }
+			      ]
+			    },
+			    "PBI_admin_workspace_ises_on_is_on_dedicated_capacity": {
+			      "Binding": {
+			        "ConceptualEntity": "PBI_admin_Workspaces"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "PBI_admin_workspace": {
+			          "Target": {
+			            "Entity": "PBI_admin_workspace"
+			          }
+			        },
+			        "PBI_admin_workspace.is_on_dedicated_capacity": {
+			          "Target": {
+			            "Entity": "PBI_admin_workspace.is_on_dedicated_capacity"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Verb": {
+			            "Subject": {
+			              "Role": "PBI_admin_workspace"
+			            },
+			            "Verbs": [
+			              {
+			                "is": {
+			                  "State": "Generated"
+			                }
+			              }
+			            ],
+			            "PrepositionalPhrases": [
+			              {
+			                "Prepositions": [
+			                  {
+			                    "on": {
+			                      "State": "Generated"
+			                    }
+			                  }
+			                ],
+			                "Object": {
+			                  "Role": "PBI_admin_workspace.is_on_dedicated_capacity"
+			                }
+			              }
+			            ]
+			          },
+			          "State": "Generated",
+			          "Weight": 0.95,
+			          "ID": "PBI_admin_workspaces_is_on_is_on_dedicated_capacity"
+			        },
+			        {
+			          "DynamicAdjective": {
+			            "Subject": {
+			              "Role": "PBI_admin_workspace"
+			            },
+			            "Adjective": {
+			              "Role": "PBI_admin_workspace.is_on_dedicated_capacity"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "is_on_dedicated_capacity_describe_PBI_admin_workspaces"
+			        },
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "PBI_admin_workspace"
+			            },
+			            "Object": {
+			              "Role": "PBI_admin_workspace.is_on_dedicated_capacity"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "PBI_admin_workspaces_have_is_on_dedicated_capacity"
+			        }
+			      ]
+			    },
+			    "fabric_admin_domain_is_top": {
+			      "Binding": {
+			        "ConceptualEntity": "Fabric_admin_Domains"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "fabric_admin_domain": {
+			          "Target": {
+			            "Entity": "fabric_admin_domain"
+			          }
+			        },
+			        "v_Measures_measure.domains_is_top": {
+			          "Target": {
+			            "Entity": "v_Measures_measure.domains_is_top"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Adjective": {
+			            "Subject": {
+			              "Role": "fabric_admin_domain"
+			            },
+			            "Adjectives": [
+			              {
+			                "top": {
+			                  "State": "Generated"
+			                }
+			              }
+			            ],
+			            "Measurement": {
+			              "Role": "v_Measures_measure.domains_is_top"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "domains_is_top_indicates_how_top_fabric_admin_domains_are"
+			        },
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "fabric_admin_domain"
+			            },
+			            "Object": {
+			              "Role": "v_Measures_measure.domains_is_top"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "fabric_admin_domains_have_domains_is_top"
+			        }
+			      ]
+			    },
+			    "PBI_admin_workspace_is_named_name": {
+			      "Binding": {
+			        "ConceptualEntity": "PBI_admin_Workspaces"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "PBI_admin_workspace": {
+			          "Target": {
+			            "Entity": "PBI_admin_workspace"
+			          }
+			        },
+			        "PBI_admin_workspace.name": {
+			          "Target": {
+			            "Entity": "PBI_admin_workspace.name"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Name": {
+			            "Subject": {
+			              "Role": "PBI_admin_workspace"
+			            },
+			            "Name": {
+			              "Role": "PBI_admin_workspace.name"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "names_are_names_IDs_of_PBI_admin_workspaces"
+			        },
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "PBI_admin_workspace"
+			            },
+			            "Object": {
+			              "Role": "PBI_admin_workspace.name"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "PBI_admin_workspaces_have_names"
+			        }
+			      ]
+			    },
+			    "PBI_admin_workspace_has_is_read_only": {
+			      "Binding": {
+			        "ConceptualEntity": "PBI_admin_Workspaces"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "PBI_admin_workspace": {
+			          "Target": {
+			            "Entity": "PBI_admin_workspace"
+			          }
+			        },
+			        "PBI_admin_workspace.is_read_only": {
+			          "Target": {
+			            "Entity": "PBI_admin_workspace.is_read_only"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "PBI_admin_workspace"
+			            },
+			            "Object": {
+			              "Role": "PBI_admin_workspace.is_read_only"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "PBI_admin_workspaces_have_is_read_only"
+			        }
+			      ]
+			    },
+			    "PBI_admin_workspace_has_capacity_migration_status": {
+			      "Binding": {
+			        "ConceptualEntity": "PBI_admin_Workspaces"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "PBI_admin_workspace": {
+			          "Target": {
+			            "Entity": "PBI_admin_workspace"
+			          }
+			        },
+			        "PBI_admin_workspace.capacity_migration_status": {
+			          "Target": {
+			            "Entity": "PBI_admin_workspace.capacity_migration_status"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "PBI_admin_workspace"
+			            },
+			            "Object": {
+			              "Role": "PBI_admin_workspace.capacity_migration_status"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "PBI_admin_workspaces_have_capacity_migration_statuses"
+			        }
+			      ]
+			    },
+			    "PBI_admin_workspace_has_type": {
+			      "Binding": {
+			        "ConceptualEntity": "PBI_admin_Workspaces"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "PBI_admin_workspace": {
+			          "Target": {
+			            "Entity": "PBI_admin_workspace"
+			          }
+			        },
+			        "PBI_admin_workspace.type": {
+			          "Target": {
+			            "Entity": "PBI_admin_workspace.type"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "PBI_admin_workspace"
+			            },
+			            "Object": {
+			              "Role": "PBI_admin_workspace.type"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "PBI_admin_workspaces_have_types"
+			        }
+			      ]
+			    },
+			    "PBI_admin_workspace_has_state": {
+			      "Binding": {
+			        "ConceptualEntity": "PBI_admin_Workspaces"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "PBI_admin_workspace": {
+			          "Target": {
+			            "Entity": "PBI_admin_workspace"
+			          }
+			        },
+			        "PBI_admin_workspace.state": {
+			          "Target": {
+			            "Entity": "PBI_admin_workspace.state"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "PBI_admin_workspace"
+			            },
+			            "Object": {
+			              "Role": "PBI_admin_workspace.state"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "PBI_admin_workspaces_have_states"
+			        }
+			      ]
+			    },
+			    "PBI_admin_workspace_has_has_workspace_level_setting": {
+			      "Binding": {
+			        "ConceptualEntity": "PBI_admin_Workspaces"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "PBI_admin_workspace": {
+			          "Target": {
+			            "Entity": "PBI_admin_workspace"
+			          }
+			        },
+			        "PBI_admin_workspace.has_workspace_level_setting": {
+			          "Target": {
+			            "Entity": "PBI_admin_workspace.has_workspace_level_setting"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "PBI_admin_workspace"
+			            },
+			            "Object": {
+			              "Role": "PBI_admin_workspace.has_workspace_level_setting"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "PBI_admin_workspaces_have_has_workspace_level_setting"
+			        }
+			      ]
+			    },
+			    "fabric_admin_domain_has_v_Measures_measure_domains_is_child": {
+			      "Binding": {
+			        "ConceptualEntity": "Fabric_admin_Domains"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "fabric_admin_domain": {
+			          "Target": {
+			            "Entity": "fabric_admin_domain"
+			          }
+			        },
+			        "v_Measures_measure.domains_is_child": {
+			          "Target": {
+			            "Entity": "v_Measures_measure.domains_is_child"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "fabric_admin_domain"
+			            },
+			            "Object": {
+			              "Role": "v_Measures_measure.domains_is_child"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "fabric_admin_domains_have_domains_is_child"
+			        }
+			      ]
+			    }
+			  }
+			}
+		contentType: json
+

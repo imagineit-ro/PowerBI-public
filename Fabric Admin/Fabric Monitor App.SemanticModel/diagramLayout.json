@@ -1,0 +1,74 @@
+{
+  "version": "1.1.0",
+  "diagrams": [
+    {
+      "ordinal": 0,
+      "scrollPosition": {
+        "x": 0,
+        "y": 0
+      },
+      "nodes": [
+        {
+          "location": {
+            "x": 294,
+            "y": 79
+          },
+          "nodeIndex": "Fabric_admin_Domains",
+          "nodeLineageTag": "91dc6b43-2a99-4379-8f6a-1cc0a8868d2c",
+          "size": {
+            "height": 104,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 10,
+            "y": 79
+          },
+          "nodeIndex": "Fabric_admin_Workspaces",
+          "nodeLineageTag": "21b88994-a292-4cae-b19c-66153f859109",
+          "size": {
+            "height": 104,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 568,
+            "y": 89
+          },
+          "nodeIndex": "_Measures",
+          "nodeLineageTag": "075754bd-1ecb-4243-bc17-60e3533d1566",
+          "size": {
+            "height": 104,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 852,
+            "y": 5
+          },
+          "nodeIndex": "PBI_admin_Workspaces",
+          "nodeLineageTag": "232f8285-66da-4c0d-96bc-dd1d60ae5bc5",
+          "size": {
+            "height": 272,
+            "width": 234
+          },
+          "zIndex": 0
+        }
+      ],
+      "name": "All tables",
+      "zoomValue": 100,
+      "pinKeyFieldsToTop": true,
+      "showExtraHeaderInfo": true,
+      "hideKeyFieldsWhenCollapsed": false,
+      "tablesLocked": false
+    }
+  ],
+  "selectedDiagram": "All tables",
+  "defaultDiagram": "All tables"
+}

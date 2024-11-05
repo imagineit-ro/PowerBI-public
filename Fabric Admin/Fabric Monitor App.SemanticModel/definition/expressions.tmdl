@@ -1,0 +1,336 @@
+expression CID = "45fa61a8-3575-4e0b-8376-b8cb4081e12a" meta [IsParameterQuery=true, Type="Text", IsParameterQueryRequired=true]
+	lineageTag: bba02621-b333-4388-a494-9aa53930e4c8
+	queryGroup: SP_ID
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Text
+
+expression CS = "kt18Q~x6MRiXRJd9BvPdTxD3aPCxFmMznbBdsbhW" meta [IsParameterQuery=true, Type="Text", IsParameterQueryRequired=true]
+	lineageTag: 7a868f6a-545a-4882-b9ab-61209b657066
+	queryGroup: SP_ID
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Text
+
+expression TID = "fd6988e7-53f7-4af3-9c30-4da902a4fc8a" meta [IsParameterQuery=true, Type="Text", IsParameterQueryRequired=true]
+	lineageTag: 31d51740-d4bb-44ab-8458-bb2d63516d79
+	queryGroup: SP_ID
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Text
+
+expression Fabric_tmp_nonadmin_Workspaces = ```
+		let
+		    // Define your tenant ID, client ID, and client secret
+		    tenantId = TID,
+		    clientId = CID,
+		    clientSecret = CS,
+		    Scope = "https://analysis.windows.net/powerbi/api/.default",
+		    API = "https://api.fabric.microsoft.com/v1",
+		    What="workspaces",
+		
+		    // Get the access token
+		    tokenUrl = "https://login.microsoftonline.com/" & tenantId & "/oauth2/v2.0/token",
+		    body = "grant_type=client_credentials&client_id=" & clientId & "&client_secret=" & clientSecret & "&scope=" & Scope,
+		    
+		    // Make the request to get the token
+		    tokenResponse = Json.Document(Web.Contents(tokenUrl, 
+		        [
+		            Content = Text.ToBinary(body),
+		            Headers = [#"Content-Type" = "application/x-www-form-urlencoded"]
+		        ])),
+		        
+		    accessToken = tokenResponse[access_token],
+		
+		    // Function to get groups with pagination
+		    GetGroups = (url) =>
+		    let
+		
+		        // Make the request to get groups
+		        GraphResponse = Json.Document(Web.Contents(API, 
+		            [
+		                Headers = [#"Authorization" = "Bearer " & accessToken],
+		                
+		                RelativePath = if url<>null then What & "?$top=5000" & Text.Middle(url, Text.PositionOf(url, "&continuationToken=")) else What & "?$top=5000" //null
+		                
+		            ])),
+		        
+		        // Get the groups from the response
+		        GraphList = GraphResponse[value],
+		        
+		        // Check if there is a next link for pagination
+		        NextLink = Record.FieldOrDefault(GraphResponse, "continuationUri", null),
+		        
+		        // If there is a next link, recursively get the next page
+		        NextGroups = if NextLink <> null then @GetGroups(NextLink) else {}
+		    in
+		        List.Combine({GraphList, NextGroups}),
+		
+		    // Initial call to the function
+		    AllGroups = GetGroups(null),
+		
+		    // Convert the list of groups to a table
+		    GraphTable = Table.FromList(AllGroups, Splitter.SplitByNothing(), null, null, ExtraValues.Error)
+		in
+		    GraphTable
+		```
+	lineageTag: fe3fa96b-922b-4392-a5a6-2f7ab5e6d51d
+	queryGroup: Template
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+
+expression Graph_tmp_Groups = ```
+		let
+		    // Define your tenant ID, client ID, and client secret
+		    tenantId = TID,
+		    clientId = CID,
+		    clientSecret = CS,
+		    Scope = "https://graph.microsoft.com/.default",
+		    API = "https://graph.microsoft.com/v1.0",
+		    What="/groups?$top=999&",
+		
+		    // Get the access token
+		    tokenUrl = "https://login.microsoftonline.com/" & tenantId & "/oauth2/v2.0/token",
+		    body = "grant_type=client_credentials&client_id=" & clientId & "&client_secret=" & clientSecret & "&scope=" & Scope,
+		    
+		    // Make the request to get the token
+		    tokenResponse = Json.Document(Web.Contents(tokenUrl, 
+		        [
+		            Content = Text.ToBinary(body),
+		            Headers = [#"Content-Type" = "application/x-www-form-urlencoded"]
+		        ])),
+		        
+		    accessToken = tokenResponse[access_token],
+		
+		    // Function to get groups with pagination
+		    GetGroups = (url) =>
+		    let
+		
+		
+		        // Make the request to get groups
+		        GraphResponse = Json.Document(Web.Contents(API, 
+		            [
+		                Headers = [#"Authorization" = "Bearer " & accessToken],
+		                
+		                RelativePath = if url<>null then What & Text.Middle(url, Text.PositionOf(url, "&$skiptoken=")) else What //null
+		                
+		            ])),
+		        
+		        // Get the groups from the response
+		        GraphList = GraphResponse[value],
+		        
+		        // Check if there is a next link for pagination
+		        NextLink = Record.FieldOrDefault(GraphResponse, "@odata.nextLink", null),
+		        
+		        // If there is a next link, recursively get the next page
+		        NextGroups = if NextLink <> null then @GetGroups(NextLink) else {}
+		    in
+		        List.Combine({GraphList, NextGroups}),
+		
+		    // Initial call to the function
+		    AllGroups = GetGroups(null),
+		
+		    // Convert the list of groups to a table
+		    GraphTable = Table.FromList(AllGroups, Splitter.SplitByNothing(), null, null, ExtraValues.Error),
+		    #"Expanded Column1" = Table.ExpandRecordColumn(GraphTable, "Column1", {"id", "deletedDateTime", "classification", "createdDateTime", "creationOptions", "description", "displayName", "expirationDateTime", "groupTypes", "isAssignableToRole", "mail", "mailEnabled", "mailNickname", "membershipRule", "membershipRuleProcessingState", "onPremisesDomainName", "onPremisesLastSyncDateTime", "onPremisesNetBiosName", "onPremisesSamAccountName", "onPremisesSecurityIdentifier", "onPremisesSyncEnabled", "preferredDataLocation", "preferredLanguage", "proxyAddresses", "renewedDateTime", "resourceBehaviorOptions", "resourceProvisioningOptions", "securityEnabled", "securityIdentifier", "theme", "uniqueName", "visibility", "onPremisesProvisioningErrors", "serviceProvisioningErrors"}, {"Column1.id", "Column1.deletedDateTime", "Column1.classification", "Column1.createdDateTime", "Column1.creationOptions", "Column1.description", "Column1.displayName", "Column1.expirationDateTime", "Column1.groupTypes", "Column1.isAssignableToRole", "Column1.mail", "Column1.mailEnabled", "Column1.mailNickname", "Column1.membershipRule", "Column1.membershipRuleProcessingState", "Column1.onPremisesDomainName", "Column1.onPremisesLastSyncDateTime", "Column1.onPremisesNetBiosName", "Column1.onPremisesSamAccountName", "Column1.onPremisesSecurityIdentifier", "Column1.onPremisesSyncEnabled", "Column1.preferredDataLocation", "Column1.preferredLanguage", "Column1.proxyAddresses", "Column1.renewedDateTime", "Column1.resourceBehaviorOptions", "Column1.resourceProvisioningOptions", "Column1.securityEnabled", "Column1.securityIdentifier", "Column1.theme", "Column1.uniqueName", "Column1.visibility", "Column1.onPremisesProvisioningErrors", "Column1.serviceProvisioningErrors"})
+		in
+		    #"Expanded Column1"
+		```
+	lineageTag: 1da6d76c-05ae-400e-b19b-61a47309ea40
+	queryGroup: Template
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+
+expression GraphGroups = ```
+		let
+		    // Define your tenant ID, client ID, and client secret
+		    tenantId = TID,
+		    clientId = CID,
+		    clientSecret = CS,
+		    Scope = "https://graph.microsoft.com/.default",
+		    API = "https://graph.microsoft.com/v1.0",
+		    What="groups?$top=999",
+		
+		    // Get the access token
+		    tokenUrl = "https://login.microsoftonline.com/" & tenantId & "/oauth2/v2.0/token",
+		    body = "grant_type=client_credentials&client_id=" & clientId & "&client_secret=" & clientSecret & "&scope=" & Scope,
+		    
+		    // Make the request to get the token
+		    tokenResponse = Json.Document(Web.Contents(tokenUrl, 
+		        [
+		            Content = Text.ToBinary(body),
+		            Headers = [#"Content-Type" = "application/x-www-form-urlencoded"]
+		        ])),
+		        
+		    accessToken = tokenResponse[access_token],
+		
+		    // Function to get groups with pagination
+		    GetGroups = (url) =>
+		    let
+		
+		
+		        // Make the request to get groups
+		        GraphResponse = Json.Document(Web.Contents(API, 
+		            [
+		                Headers = [#"Authorization" = "Bearer " & accessToken],
+		                
+		                RelativePath = if url<>null then What & Text.Middle(url, Text.PositionOf(url, "&$skiptoken=")) else What //null
+		                
+		            ])),
+		        
+		        // Get the groups from the response
+		        GraphList = GraphResponse[value],
+		        
+		        // Check if there is a next link for pagination
+		        NextLink = Record.FieldOrDefault(GraphResponse, "@odata.nextLink", null),
+		        
+		        // If there is a next link, recursively get the next page
+		        NextGroups = if NextLink <> null then @GetGroups(NextLink) else {}
+		    in
+		        List.Combine({GraphList, NextGroups}),
+		
+		    // Initial call to the function
+		    AllGroups = GetGroups(null),
+		
+		    // Convert the list of groups to a table
+		    GraphTable = Table.FromList(AllGroups, Splitter.SplitByNothing(), null, null, ExtraValues.Error)
+		in
+		    GraphTable
+		```
+	lineageTag: 4e4a15d6-e0d4-4aa2-93f0-364fd670e2ef
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+
+expression Fabric_tmp_admin_Workspaces = ```
+		let
+		    // Define your tenant ID, client ID, and client secret
+		    tenantId = TID,
+		    clientId = CID,
+		    clientSecret = CS,
+		    Scope = "https://analysis.windows.net/powerbi/api/.default",
+		    API = "https://api.fabric.microsoft.com/v1/admin",
+		    What="workspaces",
+		
+		    // Get the access token
+		    tokenUrl = "https://login.microsoftonline.com/" & tenantId & "/oauth2/v2.0/token",
+		    body = "grant_type=client_credentials&client_id=" & clientId & "&client_secret=" & clientSecret & "&scope=" & Scope,
+		    
+		    // Make the request to get the token
+		    tokenResponse = Json.Document(Web.Contents(tokenUrl, 
+		        [
+		            Content = Text.ToBinary(body),
+		            Headers = [#"Content-Type" = "application/x-www-form-urlencoded"]
+		        ])),
+		        
+		    accessToken = tokenResponse[access_token],
+		
+		    // Function to get groups with pagination
+		    GetGroups = (url) =>
+		    let
+		
+		        // Make the request to get groups
+		        GraphResponse = Json.Document(Web.Contents(API, 
+		            [
+		                Headers = [#"Authorization" = "Bearer " & accessToken],
+		                RelativePath = if url<>null then What & "?$top=5000" & Text.Middle(url, Text.PositionOf(url, "&continuationToken=")) else What & "?$top=5000" //null
+		                
+		            ])),
+		        
+		        // Get the groups from the response
+		        GraphList = Record.FieldOrDefault(GraphResponse, What, null),//GraphResponse[What],
+		        
+		        // Check if there is a next link for pagination
+		        NextLink = Record.FieldOrDefault(GraphResponse, "continuationUri", null),
+		        
+		        // If there is a next link, recursively get the next page
+		        NextGroups = if NextLink <> null then @GetGroups(NextLink) else {}
+		    in
+		        List.Combine({GraphList,  NextGroups}),
+		
+		    // Initial call to the function
+		    AllGroups = GetGroups(null),
+		
+		    // Convert the list of groups to a table
+		    GraphTable = Table.FromList(AllGroups, Splitter.SplitByNothing(), null, null, ExtraValues.Error)
+		in
+		    GraphTable
+		```
+	lineageTag: b3794a05-eba1-4def-a1fe-c5d298ff3e42
+	queryGroup: Template
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+
+expression PBI_tmp_admin_Workspaces = ```
+		let
+		    // Define your tenant ID, client ID, and client secret
+		    tenantId = TID,
+		    clientId = CID,
+		    clientSecret = CS,
+		    Scope = "https://analysis.windows.net/powerbi/api/.default",
+		    API = "https://api.powerbi.com/v1.0/myorg/admin",
+		    What="groups",
+		
+		    // Get the access token
+		    tokenUrl = "https://login.microsoftonline.com/" & tenantId & "/oauth2/v2.0/token",
+		    body = "grant_type=client_credentials&client_id=" & clientId & "&client_secret=" & clientSecret & "&scope=" & Scope,
+		    
+		    // Make the request to get the token
+		    tokenResponse = Json.Document(Web.Contents(tokenUrl, 
+		        [
+		            Content = Text.ToBinary(body),
+		            Headers = [#"Content-Type" = "application/x-www-form-urlencoded"]
+		        ])),
+		        
+		    accessToken = tokenResponse[access_token],
+		
+		    // Function to get groups with pagination
+		    GetGroups = (url) =>
+		    let
+		
+		        // Make the request to get groups
+		        GraphResponse = Json.Document(Web.Contents(API, 
+		            [
+		                Headers = [#"Authorization" = "Bearer " & accessToken],
+		                
+		                RelativePath = if url<>null then What & "?$top=5000" & Text.Middle(url, Text.PositionOf(url, "&continuationToken=")) else What & "?$top=5000" //null
+		                
+		            ])),
+		        
+		        // Get the groups from the response
+		        GraphList = GraphResponse[value],
+		        
+		        // Check if there is a next link for pagination
+		        NextLink = Record.FieldOrDefault(GraphResponse, "continuationUri", null),
+		        
+		        // If there is a next link, recursively get the next page
+		        NextGroups = if NextLink <> null then @GetGroups(NextLink) else {}
+		    in
+		        List.Combine({GraphList, NextGroups}),
+		
+		    // Initial call to the function
+		    AllGroups = GetGroups(null),
+		
+		    // Convert the list of groups to a table
+		    GraphTable = Table.FromList(AllGroups, Splitter.SplitByNothing(), null, null, ExtraValues.Error),
+		    #"Expanded Column1" = Table.ExpandRecordColumn(GraphTable, "Column1", {"id", "isReadOnly", "isOnDedicatedCapacity", "capacityMigrationStatus", "type", "state", "hasWorkspaceLevelSettings ", "name"}, {"id", "isReadOnly", "isOnDedicatedCapacity", "capacityMigrationStatus", "type", "state", "hasWorkspaceLevelSettings ", "name"})
+		in
+		    #"Expanded Column1"
+		```
+	lineageTag: e54f5bd5-ede6-4e8d-97a4-7536864ae0da
+	queryGroup: Template
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+
