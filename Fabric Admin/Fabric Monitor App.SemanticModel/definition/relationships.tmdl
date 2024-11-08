@@ -1,0 +1,12 @@
+relationship 0e92b763-bbbb-aa22-3e1e-0bdff1fd78aa
+	crossFilteringBehavior: bothDirections
+	fromCardinality: one
+	fromColumn: PBI_admin_Workspaces.id
+	toColumn: PBI_admin_Workspaces_Scan_Datasets.id
+
+relationship 10281e15-6bad-3917-07e3-c2ef23b1117b
+	crossFilteringBehavior: bothDirections
+	fromCardinality: one
+	fromColumn: PBI_admin_Workspaces.id
+	toColumn: PBI_admin_Workspaces_Scan_Reports.id
+

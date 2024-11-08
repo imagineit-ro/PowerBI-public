@@ -1,0 +1,208 @@
+table PBI_admin_Workspaces_Scan_Datasets
+	lineageTag: cd5dd991-d93a-4732-af5c-ee55a80af513
+
+	column id
+		dataType: string
+		lineageTag: 2e700a79-49b6-4fc2-b8a0-c9b899157053
+		summarizeBy: none
+		sourceColumn: id
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'id.1'
+		dataType: string
+		lineageTag: ab5760f9-7cb3-4eca-9136-01974444e538
+		summarizeBy: none
+		sourceColumn: id.1
+
+		annotation SummarizationSetBy = Automatic
+
+	column name
+		dataType: string
+		lineageTag: f350fbc7-434c-4d1c-9d9a-97f3f94d4521
+		summarizeBy: none
+		sourceColumn: name
+
+		annotation SummarizationSetBy = Automatic
+
+	column tables
+		dataType: string
+		lineageTag: 8ef0e061-079e-4910-b82a-c7f08eec7695
+		summarizeBy: none
+		sourceColumn: tables
+
+		annotation SummarizationSetBy = Automatic
+
+	column configuredBy
+		dataType: string
+		lineageTag: 0de29826-56d8-4cc1-acc0-284097f9564e
+		summarizeBy: none
+		sourceColumn: configuredBy
+
+		annotation SummarizationSetBy = Automatic
+
+	column configuredById
+		dataType: string
+		lineageTag: 7df16d91-cc06-4aa7-8308-f83ef4ed9ed8
+		summarizeBy: none
+		sourceColumn: configuredById
+
+		annotation SummarizationSetBy = Automatic
+
+	column isEffectiveIdentityRequired
+		dataType: string
+		lineageTag: dbd6e4eb-8c03-488f-9c99-2e5bc267154d
+		summarizeBy: none
+		sourceColumn: isEffectiveIdentityRequired
+
+		annotation SummarizationSetBy = Automatic
+
+	column isEffectiveIdentityRolesRequired
+		dataType: string
+		lineageTag: 2b0fe941-1006-4563-863e-e0dd01f133df
+		summarizeBy: none
+		sourceColumn: isEffectiveIdentityRolesRequired
+
+		annotation SummarizationSetBy = Automatic
+
+	column targetStorageMode
+		dataType: string
+		lineageTag: b4fa0c29-1d44-4650-b516-f2609b5eb52d
+		summarizeBy: none
+		sourceColumn: targetStorageMode
+
+		annotation SummarizationSetBy = Automatic
+
+	column createdDate
+		dataType: string
+		lineageTag: 8374264d-5b18-4901-8c1c-6e8a9325e6c6
+		summarizeBy: none
+		sourceColumn: createdDate
+
+		annotation SummarizationSetBy = Automatic
+
+	column contentProviderType
+		dataType: string
+		lineageTag: bcbc38db-28c0-4722-9a8f-bb79d1730978
+		summarizeBy: none
+		sourceColumn: contentProviderType
+
+		annotation SummarizationSetBy = Automatic
+
+	partition PBI_admin_Workspaces_Scan_Datasets = m
+		mode: import
+		source = ```
+				let
+				    // Define your tenant ID, client ID, and client secret
+				    tenantId = TID,
+				    clientId = CID,
+				    clientSecret = CS,
+				    Scope = "https://analysis.windows.net/powerbi/api/.default",
+				    API = "https://api.powerbi.com/v1.0/myorg/admin",
+				    What="groups",
+				
+				    // Get the access token
+				    tokenUrl = "https://login.microsoftonline.com/" & tenantId & "/oauth2/v2.0/token",
+				    body = "grant_type=client_credentials&client_id=" & clientId & "&client_secret=" & clientSecret & "&scope=" & Scope,
+				    
+				    // Make the request to get the token
+				    tokenResponse = Json.Document(Web.Contents(tokenUrl, 
+				        [
+				            Content = Text.ToBinary(body),
+				            Headers = [#"Content-Type" = "application/x-www-form-urlencoded"]
+				        ])),
+				        
+				    accessToken = tokenResponse[access_token],
+				
+				    // Function to get groups with pagination
+				    GetGroups = (url) =>
+				    let
+				
+				        // Make the request to get groups
+				        GraphResponse = Json.Document(Web.Contents(API, 
+				            [
+				                Headers = [#"Authorization" = "Bearer " & accessToken],
+				                
+				                RelativePath = if url<>null then What & "?$top=5000" & Text.Middle(url, Text.PositionOf(url, "&continuationToken=")) else What & "?$top=5000" //null
+				                
+				            ])),
+				        
+				        // Get the groups from the response
+				        GraphList = GraphResponse[value],
+				
+				        // Get Workspace id's
+				        IdList = List.Transform(GraphList, each [id]),
+				
+				
+				         // Define the request body as a JSON-formatted string
+				        bodys = Json.FromValue(              
+				        [workspaces = IdList]
+				        ),
+				
+				
+				        // Make the request to get groups
+				        ScanWorkspace = Json.Document(Web.Contents("https://api.powerbi.com/v1.0/myorg/admin/workspaces/getInfo", 
+				            [  
+				                Headers = [#"Authorization" = "Bearer " & accessToken, #"Content-Type" = "application/json"],
+				                Content = bodys 
+				            ])),
+				        ScanIDStatus = ScanWorkspace[id],
+				
+				        // Check Status of scan
+				        ScanStatus = (ids) =>
+				        let
+				            ScanStatus = Json.Document(Web.Contents("https://api.powerbi.com/v1.0/myorg/admin/workspaces/scanStatus/", 
+				                [
+				                    Headers = [#"Authorization" = "Bearer " & accessToken],
+				                
+				                    RelativePath = ids 
+				                
+				                ]))
+				        in 
+				            ScanStatus[status],
+				        
+				        checks =  ScanStatus(ScanIDStatus),
+				
+				        // Check untill Succeeded
+				        reccek = if checks <> "Succeeded" then Function.InvokeAfter(()=> @ScanStatus(ScanIDStatus), #duration(0,0,0,5)) else {},
+				        
+				        
+				
+				        //Scan Result
+				        ScanResult = Json.Document(Web.Contents("https://api.powerbi.com/v1.0/myorg/admin/workspaces/scanResult/", 
+				                [
+				                    Headers = [#"Authorization" = "Bearer " & accessToken],
+				                
+				                    RelativePath = ScanIDStatus 
+				                
+				                ])),
+				        rezlist = Record.ToList(ScanResult),
+				
+				
+				
+				        // Check if there is a next link for pagination
+				        NextLink = Record.FieldOrDefault(GraphResponse, "continuationUri", null),
+				        
+				        // If there is a next link, recursively get the next page
+				        NextGroups = if NextLink <> null then @GetGroups(NextLink) else {}
+				    in
+				       List.Combine({rezlist, NextGroups}),
+				
+				    // Initial call to the function
+				    AllGroups = GetGroups(null),
+				
+				    // Convert the list of groups to a table
+				    GraphTable = Table.FromList(AllGroups, Splitter.SplitByNothing(), null, null, ExtraValues.Error),
+				    #"Expanded Column1" = Table.ExpandListColumn(GraphTable, "Column1"),
+				    #"Expanded Column2" = Table.ExpandRecordColumn(#"Expanded Column1", "Column1", {"id", "datasets"}, {"id", "datasets"}),
+				    #"Expanded datasets" = Table.ExpandListColumn(#"Expanded Column2", "datasets"),
+				    #"Expanded datasets1" = Table.ExpandRecordColumn(#"Expanded datasets", "datasets", {"id", "name", "tables", "configuredBy", "configuredById", "isEffectiveIdentityRequired", "isEffectiveIdentityRolesRequired", "targetStorageMode", "createdDate", "contentProviderType"}, {"id.1", "name", "tables", "configuredBy", "configuredById", "isEffectiveIdentityRequired", "isEffectiveIdentityRolesRequired", "targetStorageMode", "createdDate", "contentProviderType"}),
+				    #"Filtered Rows" = Table.SelectRows(#"Expanded datasets1", each ([id.1] <> null))
+				in
+				    #"Filtered Rows"
+				```
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

@@ -334,3 +334,117 @@ expression PBI_tmp_admin_Workspaces = ```
 
 	annotation PBI_ResultType = Table
 
+expression PBI_tmp_admin_Workspaces_Scan = ```
+		let
+		    // Define your tenant ID, client ID, and client secret
+		    tenantId = TID,
+		    clientId = CID,
+		    clientSecret = CS,
+		    Scope = "https://analysis.windows.net/powerbi/api/.default",
+		    API = "https://api.powerbi.com/v1.0/myorg/admin",
+		    What="groups",
+		
+		    // Get the access token
+		    tokenUrl = "https://login.microsoftonline.com/" & tenantId & "/oauth2/v2.0/token",
+		    body = "grant_type=client_credentials&client_id=" & clientId & "&client_secret=" & clientSecret & "&scope=" & Scope,
+		    
+		    // Make the request to get the token
+		    tokenResponse = Json.Document(Web.Contents(tokenUrl, 
+		        [
+		            Content = Text.ToBinary(body),
+		            Headers = [#"Content-Type" = "application/x-www-form-urlencoded"]
+		        ])),
+		        
+		    accessToken = tokenResponse[access_token],
+		
+		    // Function to get groups with pagination
+		    GetGroups = (url) =>
+		    let
+		
+		        // Make the request to get groups
+		        GraphResponse = Json.Document(Web.Contents(API, 
+		            [
+		                Headers = [#"Authorization" = "Bearer " & accessToken],
+		                
+		                RelativePath = if url<>null then What & "?$top=5000" & Text.Middle(url, Text.PositionOf(url, "&continuationToken=")) else What & "?$top=5000" //null
+		                
+		            ])),
+		        
+		        // Get the groups from the response
+		        GraphList = GraphResponse[value],
+		
+		        // Get Workspace id's
+		        IdList = List.Transform(GraphList, each [id]),
+		
+		
+		         // Define the request body as a JSON-formatted string
+		        bodys = Json.FromValue(              
+		        [workspaces = IdList]
+		        ),
+		
+		
+		        // Make the request to get groups
+		        ScanWorkspace = Json.Document(Web.Contents("https://api.powerbi.com/v1.0/myorg/admin/workspaces/getInfo", 
+		            [  
+		                Headers = [#"Authorization" = "Bearer " & accessToken, #"Content-Type" = "application/json"],
+		                Content = bodys 
+		            ])),
+		        ScanIDStatus = ScanWorkspace[id],
+		
+		        // Check Status of scan
+		        ScanStatus = (ids) =>
+		        let
+		            ScanStatus = Json.Document(Web.Contents("https://api.powerbi.com/v1.0/myorg/admin/workspaces/scanStatus/", 
+		                [
+		                    Headers = [#"Authorization" = "Bearer " & accessToken],
+		                
+		                    RelativePath = ids 
+		                
+		                ]))
+		        in 
+		            ScanStatus[status],
+		        
+		        checks =  ScanStatus(ScanIDStatus),
+		
+		        // Check untill Succeeded
+		        reccek = if checks <> "Succeeded" then Function.InvokeAfter(()=> @ScanStatus(ScanIDStatus), #duration(0,0,0,5)) else {},
+		        
+		        
+		
+		        //Scan Result
+		        ScanResult = Json.Document(Web.Contents("https://api.powerbi.com/v1.0/myorg/admin/workspaces/scanResult/", 
+		                [
+		                    Headers = [#"Authorization" = "Bearer " & accessToken],
+		                
+		                    RelativePath = ScanIDStatus 
+		                
+		                ])),
+		        rezlist = Record.ToList(ScanResult),
+		
+		
+		
+		        // Check if there is a next link for pagination
+		        NextLink = Record.FieldOrDefault(GraphResponse, "continuationUri", null),
+		        
+		        // If there is a next link, recursively get the next page
+		        NextGroups = if NextLink <> null then @GetGroups(NextLink) else {}
+		    in
+		       List.Combine({rezlist, NextGroups}),
+		
+		    // Initial call to the function
+		    AllGroups = GetGroups(null),
+		
+		    // Convert the list of groups to a table
+		    GraphTable = Table.FromList(AllGroups, Splitter.SplitByNothing(), null, null, ExtraValues.Error),
+		    #"Expanded Column1" = Table.ExpandListColumn(GraphTable, "Column1"),
+		    #"Expanded Column2" = Table.ExpandRecordColumn(#"Expanded Column1", "Column1", {"id", "name", "type", "state", "isOnDedicatedCapacity", "reports"}, {"id", "name", "type", "state", "isOnDedicatedCapacity", "reports"})
+		in
+		    #"Expanded Column2"
+		```
+	lineageTag: d1f4cb0a-49b8-4c1c-b8c5-de7ff7b1d403
+	queryGroup: Template
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+
