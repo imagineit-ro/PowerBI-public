@@ -156,7 +156,7 @@ table PBI_admin_Workspaces_Scan_Reports
 				            [
 				                Headers = [#"Authorization" = "Bearer " & accessToken],
 				                
-				                RelativePath = if url<>null then What & "?$top=5000" & Text.Middle(url, Text.PositionOf(url, "&continuationToken=")) else What & "?$top=5000" //null
+				                RelativePath = if url<>null then What & "?$top=100" & Text.Middle(url, Text.PositionOf(url, "&continuationToken=")) else What & "?$top=100" //null
 				                
 				            ])),
 				        
