@@ -25,14 +25,6 @@ table PBI_admin_Workspaces_Scan_Datasets
 
 		annotation SummarizationSetBy = Automatic
 
-	column tables
-		dataType: string
-		lineageTag: 8ef0e061-079e-4910-b82a-c7f08eec7695
-		summarizeBy: none
-		sourceColumn: tables
-
-		annotation SummarizationSetBy = Automatic
-
 	column configuredBy
 		dataType: string
 		lineageTag: 0de29826-56d8-4cc1-acc0-284097f9564e
@@ -50,7 +42,8 @@ table PBI_admin_Workspaces_Scan_Datasets
 		annotation SummarizationSetBy = Automatic
 
 	column isEffectiveIdentityRequired
-		dataType: string
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
 		lineageTag: dbd6e4eb-8c03-488f-9c99-2e5bc267154d
 		summarizeBy: none
 		sourceColumn: isEffectiveIdentityRequired
@@ -58,7 +51,8 @@ table PBI_admin_Workspaces_Scan_Datasets
 		annotation SummarizationSetBy = Automatic
 
 	column isEffectiveIdentityRolesRequired
-		dataType: string
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
 		lineageTag: 2b0fe941-1006-4563-863e-e0dd01f133df
 		summarizeBy: none
 		sourceColumn: isEffectiveIdentityRolesRequired
@@ -197,9 +191,11 @@ table PBI_admin_Workspaces_Scan_Datasets
 				    #"Expanded Column2" = Table.ExpandRecordColumn(#"Expanded Column1", "Column1", {"id", "datasets"}, {"id", "datasets"}),
 				    #"Expanded datasets" = Table.ExpandListColumn(#"Expanded Column2", "datasets"),
 				    #"Expanded datasets1" = Table.ExpandRecordColumn(#"Expanded datasets", "datasets", {"id", "name", "tables", "configuredBy", "configuredById", "isEffectiveIdentityRequired", "isEffectiveIdentityRolesRequired", "targetStorageMode", "createdDate", "contentProviderType"}, {"id.1", "name", "tables", "configuredBy", "configuredById", "isEffectiveIdentityRequired", "isEffectiveIdentityRolesRequired", "targetStorageMode", "createdDate", "contentProviderType"}),
-				    #"Filtered Rows" = Table.SelectRows(#"Expanded datasets1", each ([id.1] <> null))
+				    #"Removed Columns" = Table.RemoveColumns(#"Expanded datasets1",{"tables"}),
+				    #"Filtered Rows" = Table.SelectRows(#"Removed Columns", each ([id.1] <> null)),
+				    #"Changed Type" = Table.TransformColumnTypes(#"Filtered Rows",{{"isEffectiveIdentityRequired", type logical}, {"isEffectiveIdentityRolesRequired", type logical}})
 				in
-				    #"Filtered Rows"
+				    #"Changed Type"
 				```
 
 	annotation PBI_NavigationStepName = Navigation

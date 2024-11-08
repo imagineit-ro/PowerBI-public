@@ -34,7 +34,8 @@ table PBI_admin_Workspaces_Scan_Reports
 		annotation SummarizationSetBy = Automatic
 
 	column isOnDedicatedCapacity
-		dataType: string
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
 		lineageTag: aaf3eebe-b541-4a43-9338-ed4af7f2fb48
 		summarizeBy: none
 		sourceColumn: isOnDedicatedCapacity
@@ -229,9 +230,10 @@ table PBI_admin_Workspaces_Scan_Reports
 				    #"Expanded Column2" = Table.ExpandRecordColumn(#"Expanded Column1", "Column1", {"id", "name", "type", "state", "isOnDedicatedCapacity", "reports"}, {"id", "name", "type", "state", "isOnDedicatedCapacity", "reports"}),
 				    #"Expanded reports" = Table.ExpandListColumn(#"Expanded Column2", "reports"),
 				    #"Expanded reports1" = Table.ExpandRecordColumn(#"Expanded reports", "reports", {"reportType", "id", "name", "datasetId", "createdDateTime", "modifiedDateTime", "modifiedBy", "createdBy", "modifiedById", "createdById"}, {"reportType", "id.1", "name.1", "datasetId", "createdDateTime", "modifiedDateTime", "modifiedBy", "createdBy", "modifiedById", "createdById"}),
-				    #"Filtered Rows" = Table.SelectRows(#"Expanded reports1", each ([id.1] <> null))
+				    #"Filtered Rows" = Table.SelectRows(#"Expanded reports1", each ([id.1] <> null)),
+				    #"Changed Type" = Table.TransformColumnTypes(#"Filtered Rows",{{"isOnDedicatedCapacity", type logical}})
 				in
-				    #"Filtered Rows"
+				    #"Changed Type"
 				```
 
 	annotation PBI_NavigationStepName = Navigation

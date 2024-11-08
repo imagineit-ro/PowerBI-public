@@ -10,7 +10,8 @@ table PBI_admin_Workspaces
 		annotation SummarizationSetBy = Automatic
 
 	column isReadOnly
-		dataType: string
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
 		lineageTag: ccf9ec3c-360e-4c96-829b-062c782348d9
 		summarizeBy: none
 		sourceColumn: isReadOnly
@@ -18,7 +19,8 @@ table PBI_admin_Workspaces
 		annotation SummarizationSetBy = Automatic
 
 	column isOnDedicatedCapacity
-		dataType: string
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
 		lineageTag: 8accba10-18c6-4eef-bcea-9e2df4388a02
 		summarizeBy: none
 		sourceColumn: isOnDedicatedCapacity
@@ -119,9 +121,10 @@ table PBI_admin_Workspaces
 				
 				    // Convert the list of groups to a table
 				    GraphTable = Table.FromList(AllGroups, Splitter.SplitByNothing(), null, null, ExtraValues.Error),
-				    #"Expanded Column1" = Table.ExpandRecordColumn(GraphTable, "Column1", {"id", "isReadOnly", "isOnDedicatedCapacity", "capacityMigrationStatus", "type", "state", "hasWorkspaceLevelSettings ", "name"}, {"id", "isReadOnly", "isOnDedicatedCapacity", "capacityMigrationStatus", "type", "state", "hasWorkspaceLevelSettings ", "name"})
+				    #"Expanded Column1" = Table.ExpandRecordColumn(GraphTable, "Column1", {"id", "isReadOnly", "isOnDedicatedCapacity", "capacityMigrationStatus", "type", "state", "hasWorkspaceLevelSettings ", "name"}, {"id", "isReadOnly", "isOnDedicatedCapacity", "capacityMigrationStatus", "type", "state", "hasWorkspaceLevelSettings ", "name"}),
+				    #"Changed Type" = Table.TransformColumnTypes(#"Expanded Column1",{{"isReadOnly", type logical}, {"isOnDedicatedCapacity", type logical}})
 				in
-				    #"Expanded Column1"
+				    #"Changed Type"
 				```
 
 	annotation PBI_NavigationStepName = Navigation
