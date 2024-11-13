@@ -1,0 +1,7 @@
+DEFINE
+	--Get Total Top Domains
+	MEASURE _Measures[__Domains_IsTop] = CALCULATE(Count(Fabric_admin_Domains[id]), Fabric_admin_Domains[parentDomainId]=Blank())+0
+	
+	--Get Total Child Domains
+	MEASURE _Measures[__Domains_IsChild] = CALCULATE(Count(Fabric_admin_Domains[id]), Fabric_admin_Domains[parentDomainId]<>Blank())+0
+	

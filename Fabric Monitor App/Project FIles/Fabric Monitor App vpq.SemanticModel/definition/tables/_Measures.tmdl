@@ -1,0 +1,41 @@
+table _Measures
+	lineageTag: 5cd0cf45-e7c4-419e-ae0e-4f902330ef2c
+
+	measure __Domains_IsTop = ```
+			CALCULATE(Count(Fabric_admin_Domains[id]), Fabric_admin_Domains[parentDomainId]=Blank())+0
+				
+				
+			```
+		formatString: 0
+		lineageTag: 28e3c77f-57ed-4e4f-a726-6ab068f290ac
+
+	measure __Domains_IsChild = ```
+			CALCULATE(Count(Fabric_admin_Domains[id]), Fabric_admin_Domains[parentDomainId]<>Blank())+0
+				
+			```
+		formatString: 0
+		lineageTag: ba52b512-504f-498c-8670-b96054ee56bd
+
+	column List
+		dataType: string
+		isHidden
+		lineageTag: 7d27d3ba-b01b-435b-9e9a-7bda2610caac
+		summarizeBy: none
+		sourceColumn: List
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	partition _Measures = m
+		mode: import
+		queryGroup: Measures
+		source =
+				let
+				    Source = Table.FromRows(Json.Document(Binary.Decompress(Binary.FromText("i44FAA==", BinaryEncoding.Base64), Compression.Deflate)), let _t = ((type nullable text) meta [Serialized.Text = true]) in type table [List = _t]),
+				    #"Changed Type" = Table.TransformColumnTypes(Source,{{"List", type text}})
+				in
+				    #"Changed Type"
+
+	annotation PBI_ResultType = Table
+

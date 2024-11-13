@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "SemanticModel",
+    "displayName": "Fabric Monitor App vpq"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "aa278851-c917-40b6-a8fb-f69bd449e618"
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "version": "1.0.0",
+  "tabOrder": [
+    "Measures",
+    "Documentation_Measures",
+    "Documentation_Calulated_Columns"
+  ],
+  "defaultTab": "Documentation_Calulated_Columns"
+}

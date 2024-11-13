@@ -1,0 +1,105 @@
+table Fabric_admin_Domains
+	lineageTag: db19eec3-673c-4d93-b9aa-0db3f805d6d5
+
+	column id
+		dataType: string
+		lineageTag: 55cddac8-7ad7-42bf-87ea-9dd374a81e1a
+		summarizeBy: none
+		sourceColumn: id
+
+		annotation SummarizationSetBy = Automatic
+
+	column displayName
+		dataType: string
+		lineageTag: 8c54f366-2764-4daa-8551-b924bb835557
+		summarizeBy: none
+		sourceColumn: displayName
+
+		annotation SummarizationSetBy = Automatic
+
+	column description
+		dataType: string
+		lineageTag: 4fdbbc45-24ef-43b9-9654-3bcc55f61345
+		summarizeBy: none
+		sourceColumn: description
+
+		annotation SummarizationSetBy = Automatic
+
+	column parentDomainId
+		dataType: string
+		lineageTag: c09ce5cb-a0cf-4e84-bcc3-7b5853ab2c00
+		summarizeBy: none
+		sourceColumn: parentDomainId
+
+		annotation SummarizationSetBy = Automatic
+
+	column contributorsScope
+		dataType: string
+		lineageTag: d408c0f6-2a11-468a-ae77-5d4bccc60a21
+		summarizeBy: none
+		sourceColumn: contributorsScope
+
+		annotation SummarizationSetBy = Automatic
+
+	partition Fabric_admin_Domains = m
+		mode: import
+		source = ```
+				let
+				    // Define your tenant ID, client ID, and client secret
+				    tenantId = TID,
+				    clientId = CID,
+				    clientSecret = CS,
+				    Scope = "https://analysis.windows.net/powerbi/api/.default",
+				    API = "https://api.fabric.microsoft.com/v1/admin",
+				    What="domains",
+				
+				    // Get the access token
+				    tokenUrl = "https://login.microsoftonline.com/" & tenantId & "/oauth2/v2.0/token",
+				    body = "grant_type=client_credentials&client_id=" & clientId & "&client_secret=" & clientSecret & "&scope=" & Scope,
+				    
+				    // Make the request to get the token
+				    tokenResponse = Json.Document(Web.Contents(tokenUrl, 
+				        [
+				            Content = Text.ToBinary(body),
+				            Headers = [#"Content-Type" = "application/x-www-form-urlencoded"]
+				        ])),
+				        
+				    accessToken = tokenResponse[access_token],
+				
+				    // Function to get groups with pagination
+				    GetGroups = (url) =>
+				    let
+				
+				        // Make the request to get groups
+				        GraphResponse = Json.Document(Web.Contents(API, 
+				            [
+				                Headers = [#"Authorization" = "Bearer " & accessToken],
+				                RelativePath = if url<>null then What & "?$top=5000" & Text.Middle(url, Text.PositionOf(url, "&continuationToken=")) else What & "?$top=5000" //null
+				                
+				            ])),
+				        
+				        // Get the groups from the response
+				        GraphList = Record.FieldOrDefault(GraphResponse, What, null),//GraphResponse[What],
+				        
+				        // Check if there is a next link for pagination
+				        NextLink = Record.FieldOrDefault(GraphResponse, "continuationUri", null),
+				        
+				        // If there is a next link, recursively get the next page
+				        NextGroups = if NextLink <> null then @GetGroups(NextLink) else {}
+				    in
+				        List.Combine({GraphList,  NextGroups}),
+				
+				    // Initial call to the function
+				    AllGroups = GetGroups(null),
+				
+				    // Convert the list of groups to a table
+				    GraphTable = Table.FromList(AllGroups, Splitter.SplitByNothing(), null, null, ExtraValues.Error),
+				    #"Expanded Column1" = Table.ExpandRecordColumn(GraphTable, "Column1", {"id", "displayName", "description", "parentDomainId", "contributorsScope"}, {"id", "displayName", "description", "parentDomainId", "contributorsScope"})
+				in
+				    #"Expanded Column1"
+				```
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+
