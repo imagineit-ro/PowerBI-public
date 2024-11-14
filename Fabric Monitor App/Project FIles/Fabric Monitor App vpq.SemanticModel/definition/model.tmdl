@@ -18,7 +18,7 @@ queryGroup Measures
 
 	annotation PBI_QueryGroupOrder = 2
 
-annotation PBI_QueryOrder = ["CID","CS","TID","Graph_tmp_Groups","Fabric_tmp_nonadmin_Workspaces","Fabric_tmp_admin_Workspaces","PBI_tmp_admin_Workspaces","PBI_tmp_admin_Workspaces_Scan","_Measures","GraphGroups","PBI_admin_Workspaces","Fabric_admin_Workspaces","Fabric_admin_Domains","Reports","Datasets"]
+annotation PBI_QueryOrder = ["CID","CS","TID","Graph_tmp_Groups","Fabric_tmp_nonadmin_Workspaces","Fabric_tmp_admin_Workspaces","PBI_tmp_admin_Workspaces","PBI_tmp_admin_Workspaces_Scan","_Measures","GraphGroups","PBI_admin_Workspaces","Fabric_admin_Workspaces","Fabric_admin_Domains","Reports","Datasets","Daily Activity Log"]
 
 annotation __PBI_TimeIntelligenceEnabled = 1
 
@@ -32,6 +32,7 @@ ref table Fabric_admin_Domains
 ref table Reports
 ref table Datasets
 ref table PBI_admin_Workspaces
+ref table 'Daily Activity Log'
 
 ref cultureInfo en-US
 
