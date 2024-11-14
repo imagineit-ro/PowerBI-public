@@ -428,3 +428,244 @@ expression GraphGroups = ```
 
 	annotation PBI_ResultType = Table
 
+expression 'Daily Activity Log_Today-1' = ```
+		let
+		    // Define your tenant ID, client ID, and client secret
+		    tenantId = TID,
+		    clientId = CID,
+		    clientSecret = CS,
+		    Scope = "https://analysis.windows.net/powerbi/api/.default",
+		    API = "https://api.powerbi.com/v1.0/myorg/admin",
+		
+		    enddate = DateTime.ToText(Date.AddDays(Date.EndOfDay(DateTime.FixedLocalNow()), -1), "yyyy-MM-ddTHH:mm:ss.fffZ"),
+		    startdt = DateTime.ToText(Date.AddDays(Date.StartOfDay(DateTime.FixedLocalNow()), -1), "yyyy-MM-ddTHH:mm:ss.fffZ"),
+		    tsdate= "startDateTime='"& startdt & "'&endDateTime='" & enddate &"'",
+		
+		    What="activityevents?",
+		
+		    // Get the access token
+		    tokenUrl = "https://login.microsoftonline.com/" & tenantId & "/oauth2/v2.0/token",
+		    body = "grant_type=client_credentials&client_id=" & clientId & "&client_secret=" & clientSecret & "&scope=" & Scope,
+		    
+		    // Make the request to get the token
+		    tokenResponse = Json.Document(Web.Contents(tokenUrl, 
+		        [
+		            Content = Text.ToBinary(body),
+		            Headers = [#"Content-Type" = "application/x-www-form-urlencoded"]
+		        ])),
+		        
+		    accessToken = tokenResponse[access_token],
+		
+		    // Function to get groups with pagination
+		    GetGroups = (url) =>
+		    let
+		        // Make the request to get groups
+		        GraphResponse = Json.Document(Web.Contents(API, 
+		            [
+		                Headers = [#"Authorization" = "Bearer " & accessToken],
+		                RelativePath = if url<>null then What & "?" & Text.Middle(url, Text.PositionOf(url, "continuationToken=")) else What & tsdate //null
+		            ])),//,
+		        
+		        // Get the groups from the response
+		        GraphList = GraphResponse[activityEventEntities],
+		
+		         // Check if there is a next link for pagination
+		        NextLink = GraphResponse[continuationUri],
+		        
+		        // If there is a next link, recursively get the next page
+		        NextGroups = if NextLink <> null then @GetGroups(NextLink) else {}
+		
+		    in
+		    List.Combine({GraphList,  NextGroups}),
+		
+		    // Initial call to the function
+		    AllGroups = GetGroups(null),
+		
+		    ColumnNames = {"Id", "RecordType", "CreationTime", "Operation", "OrganizationId", "UserType", 
+		                   "UserKey", "Workload", "ResultStatus", "UserId", "ClientIP", "UserAgent", 
+		                   "Activity", "WorkSpaceName", "WorkspaceId", "ObjectId", "RequestId", 
+		                   "ObjectType", "ObjectDisplayName", "Experience", "RefreshEnforcementPolicy", 
+		                   "IsSuccess", "ActivityId", "RequiredWorkspaces", "IncludeSubartifacts", 
+		                   "IncludeExpressions", "Lineage", "DatasourceDetails", "ModelsSnapshots", 
+		                   "ExportEventStartDateTimeParameter", "ExportEventEndDateTimeParameter"},
+		    
+		    BlankRecord = Record.FromList(List.Repeat({null}, List.Count(ColumnNames)), ColumnNames),
+		    BlankList = {BlankRecord},
+		
+		    TheList = List.Combine({AllGroups,  BlankList}),
+		
+		    // Convert the list of groups to a table
+		    GraphTable = Table.FromList(TheList, Splitter.SplitByNothing(), null, null, ExtraValues.Error),
+		    #"Expanded Column1" = Table.ExpandRecordColumn(GraphTable, "Column1", {"Id", "RecordType", "CreationTime", "Operation", "OrganizationId", "UserType", "UserKey", "Workload", "ResultStatus", "UserId", "ClientIP", "UserAgent", "Activity", "WorkSpaceName", "WorkspaceId", "ObjectId", "RequestId", "ObjectType", "ObjectDisplayName", "Experience", "RefreshEnforcementPolicy", "IsSuccess", "ActivityId", "RequiredWorkspaces", "IncludeSubartifacts", "IncludeExpressions", "Lineage", "DatasourceDetails", "ModelsSnapshots", "ExportEventStartDateTimeParameter", "ExportEventEndDateTimeParameter"}, {"Id", "RecordType", "CreationTime", "Operation", "OrganizationId", "UserType", "UserKey", "Workload", "ResultStatus", "UserId", "ClientIP", "UserAgent", "Activity", "WorkSpaceName", "WorkspaceId", "ObjectId", "RequestId", "ObjectType", "ObjectDisplayName", "Experience", "RefreshEnforcementPolicy", "IsSuccess", "ActivityId", "RequiredWorkspaces", "IncludeSubartifacts", "IncludeExpressions", "Lineage", "DatasourceDetails", "ModelsSnapshots", "ExportEventStartDateTimeParameter", "ExportEventEndDateTimeParameter"}),
+		    #"Expanded RequiredWorkspaces" = Table.ExpandListColumn(#"Expanded Column1", "RequiredWorkspaces"),
+		    #"Expanded ModelsSnapshots" = Table.ExpandListColumn(#"Expanded RequiredWorkspaces", "ModelsSnapshots")
+		in
+		    #"Expanded ModelsSnapshots"
+		```
+	lineageTag: 3bd7dab9-cbf7-4131-9b98-0809eac06e21
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+
+expression 'Daily Activity Log_Today-2' = ```
+		let
+		    // Define your tenant ID, client ID, and client secret
+		    tenantId = TID,
+		    clientId = CID,
+		    clientSecret = CS,
+		    Scope = "https://analysis.windows.net/powerbi/api/.default",
+		    API = "https://api.powerbi.com/v1.0/myorg/admin",
+		
+		    enddate = DateTime.ToText(Date.AddDays(Date.EndOfDay(DateTime.FixedLocalNow()), -2), "yyyy-MM-ddTHH:mm:ss.fffZ"),
+		    startdt = DateTime.ToText(Date.AddDays(Date.StartOfDay(DateTime.FixedLocalNow()), -2), "yyyy-MM-ddTHH:mm:ss.fffZ"),
+		    tsdate= "startDateTime='"& startdt & "'&endDateTime='" & enddate &"'",
+		
+		    What="activityevents?",
+		
+		    // Get the access token
+		    tokenUrl = "https://login.microsoftonline.com/" & tenantId & "/oauth2/v2.0/token",
+		    body = "grant_type=client_credentials&client_id=" & clientId & "&client_secret=" & clientSecret & "&scope=" & Scope,
+		    
+		    // Make the request to get the token
+		    tokenResponse = Json.Document(Web.Contents(tokenUrl, 
+		        [
+		            Content = Text.ToBinary(body),
+		            Headers = [#"Content-Type" = "application/x-www-form-urlencoded"]
+		        ])),
+		        
+		    accessToken = tokenResponse[access_token],
+		
+		    // Function to get groups with pagination
+		    GetGroups = (url) =>
+		    let
+		        // Make the request to get groups
+		        GraphResponse = Json.Document(Web.Contents(API, 
+		            [
+		                Headers = [#"Authorization" = "Bearer " & accessToken],
+		                RelativePath = if url<>null then What & "?" & Text.Middle(url, Text.PositionOf(url, "continuationToken=")) else What & tsdate //null
+		            ])),//,
+		        
+		        // Get the groups from the response
+		        GraphList = GraphResponse[activityEventEntities],
+		
+		         // Check if there is a next link for pagination
+		        NextLink = GraphResponse[continuationUri],
+		        
+		        // If there is a next link, recursively get the next page
+		        NextGroups = if NextLink <> null then @GetGroups(NextLink) else {}
+		
+		    in
+		    List.Combine({GraphList,  NextGroups}),
+		
+		    // Initial call to the function
+		    AllGroups = GetGroups(null),
+		
+		    ColumnNames = {"Id", "RecordType", "CreationTime", "Operation", "OrganizationId", "UserType", 
+		                   "UserKey", "Workload", "ResultStatus", "UserId", "ClientIP", "UserAgent", 
+		                   "Activity", "WorkSpaceName", "WorkspaceId", "ObjectId", "RequestId", 
+		                   "ObjectType", "ObjectDisplayName", "Experience", "RefreshEnforcementPolicy", 
+		                   "IsSuccess", "ActivityId", "RequiredWorkspaces", "IncludeSubartifacts", 
+		                   "IncludeExpressions", "Lineage", "DatasourceDetails", "ModelsSnapshots", 
+		                   "ExportEventStartDateTimeParameter", "ExportEventEndDateTimeParameter"},
+		    
+		    BlankRecord = Record.FromList(List.Repeat({null}, List.Count(ColumnNames)), ColumnNames),
+		    BlankList = {BlankRecord},
+		
+		    TheList = List.Combine({AllGroups,  BlankList}),
+		
+		
+		    // Convert the list of groups to a table
+		    GraphTable = Table.FromList(TheList, Splitter.SplitByNothing(), null, null, ExtraValues.Error),
+		    #"Expanded Column1" = Table.ExpandRecordColumn(GraphTable, "Column1", {"Id", "RecordType", "CreationTime", "Operation", "OrganizationId", "UserType", "UserKey", "Workload", "ResultStatus", "UserId", "ClientIP", "UserAgent", "Activity", "WorkSpaceName", "WorkspaceId", "ObjectId", "RequestId", "ObjectType", "ObjectDisplayName", "Experience", "RefreshEnforcementPolicy", "IsSuccess", "ActivityId", "RequiredWorkspaces", "IncludeSubartifacts", "IncludeExpressions", "Lineage", "DatasourceDetails", "ModelsSnapshots", "ExportEventStartDateTimeParameter", "ExportEventEndDateTimeParameter"}, {"Id", "RecordType", "CreationTime", "Operation", "OrganizationId", "UserType", "UserKey", "Workload", "ResultStatus", "UserId", "ClientIP", "UserAgent", "Activity", "WorkSpaceName", "WorkspaceId", "ObjectId", "RequestId", "ObjectType", "ObjectDisplayName", "Experience", "RefreshEnforcementPolicy", "IsSuccess", "ActivityId", "RequiredWorkspaces", "IncludeSubartifacts", "IncludeExpressions", "Lineage", "DatasourceDetails", "ModelsSnapshots", "ExportEventStartDateTimeParameter", "ExportEventEndDateTimeParameter"}),
+		    #"Expanded RequiredWorkspaces" = Table.ExpandListColumn(#"Expanded Column1", "RequiredWorkspaces"),
+		    #"Expanded ModelsSnapshots" = Table.ExpandListColumn(#"Expanded RequiredWorkspaces", "ModelsSnapshots")
+		in
+		    #"Expanded ModelsSnapshots"
+		```
+	lineageTag: a2304978-962d-497b-bd62-c413f2ad44df
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+
+expression 'Daily Activity Log_Today' = ```
+		let
+		    // Define your tenant ID, client ID, and client secret
+		    tenantId = TID,
+		    clientId = CID,
+		    clientSecret = CS,
+		    Scope = "https://analysis.windows.net/powerbi/api/.default",
+		    API = "https://api.powerbi.com/v1.0/myorg/admin",
+		
+		    enddate = DateTime.ToText(Date.EndOfDay(DateTime.FixedLocalNow()), "yyyy-MM-ddTHH:mm:ss.fffZ"),
+		    startdt = DateTime.ToText(Date.StartOfDay(DateTime.FixedLocalNow()), "yyyy-MM-ddTHH:mm:ss.fffZ"),
+		    tsdate= "startDateTime='"& startdt & "'&endDateTime='" & enddate &"'",
+		
+		    What="activityevents?",
+		
+		    // Get the access token
+		    tokenUrl = "https://login.microsoftonline.com/" & tenantId & "/oauth2/v2.0/token",
+		    body = "grant_type=client_credentials&client_id=" & clientId & "&client_secret=" & clientSecret & "&scope=" & Scope,
+		    
+		    // Make the request to get the token
+		    tokenResponse = Json.Document(Web.Contents(tokenUrl, 
+		        [
+		            Content = Text.ToBinary(body),
+		            Headers = [#"Content-Type" = "application/x-www-form-urlencoded"]
+		        ])),
+		        
+		    accessToken = tokenResponse[access_token],
+		
+		    // Function to get groups with pagination
+		    GetGroups = (url) =>
+		    let
+		        // Make the request to get groups
+		        GraphResponse = Json.Document(Web.Contents(API, 
+		            [
+		                Headers = [#"Authorization" = "Bearer " & accessToken],
+		                RelativePath = if url<>null then What & "?" & Text.Middle(url, Text.PositionOf(url, "continuationToken=")) else What & tsdate //null
+		            ])),//,
+		        
+		        // Get the groups from the response
+		        GraphList = GraphResponse[activityEventEntities],
+		
+		         // Check if there is a next link for pagination
+		        NextLink = GraphResponse[continuationUri],
+		        
+		        // If there is a next link, recursively get the next page
+		        NextGroups = if NextLink <> null then @GetGroups(NextLink) else {}
+		
+		    in
+		    List.Combine({GraphList,  NextGroups}),
+		
+		    // Initial call to the function
+		    AllGroups = GetGroups(null),
+		
+		     ColumnNames = {"Id", "RecordType", "CreationTime", "Operation", "OrganizationId", "UserType", 
+		                   "UserKey", "Workload", "ResultStatus", "UserId", "ClientIP", "UserAgent", 
+		                   "Activity", "WorkSpaceName", "WorkspaceId", "ObjectId", "RequestId", 
+		                   "ObjectType", "ObjectDisplayName", "Experience", "RefreshEnforcementPolicy", 
+		                   "IsSuccess", "ActivityId", "RequiredWorkspaces", "IncludeSubartifacts", 
+		                   "IncludeExpressions", "Lineage", "DatasourceDetails", "ModelsSnapshots", 
+		                   "ExportEventStartDateTimeParameter", "ExportEventEndDateTimeParameter"},
+		    
+		    BlankRecord = Record.FromList(List.Repeat({null}, List.Count(ColumnNames)), ColumnNames),
+		    BlankList = {BlankRecord},
+		
+		    TheList = List.Combine({AllGroups,  BlankList}),
+		
+		    // Convert the list of groups to a table
+		    GraphTable = Table.FromList(TheList, Splitter.SplitByNothing(), null, null, ExtraValues.Error),
+		    #"Expanded Column1" = Table.ExpandRecordColumn(GraphTable, "Column1", {"Id", "RecordType", "CreationTime", "Operation", "OrganizationId", "UserType", "UserKey", "Workload", "ResultStatus", "UserId", "ClientIP", "UserAgent", "Activity", "WorkSpaceName", "WorkspaceId", "ObjectId", "RequestId", "ObjectType", "ObjectDisplayName", "Experience", "RefreshEnforcementPolicy", "IsSuccess", "ActivityId", "RequiredWorkspaces", "IncludeSubartifacts", "IncludeExpressions", "Lineage", "DatasourceDetails", "ModelsSnapshots", "ExportEventStartDateTimeParameter", "ExportEventEndDateTimeParameter"}, {"Id", "RecordType", "CreationTime", "Operation", "OrganizationId", "UserType", "UserKey", "Workload", "ResultStatus", "UserId", "ClientIP", "UserAgent", "Activity", "WorkSpaceName", "WorkspaceId", "ObjectId", "RequestId", "ObjectType", "ObjectDisplayName", "Experience", "RefreshEnforcementPolicy", "IsSuccess", "ActivityId", "RequiredWorkspaces", "IncludeSubartifacts", "IncludeExpressions", "Lineage", "DatasourceDetails", "ModelsSnapshots", "ExportEventStartDateTimeParameter", "ExportEventEndDateTimeParameter"}),
+		    #"Expanded RequiredWorkspaces" = Table.ExpandListColumn(#"Expanded Column1", "RequiredWorkspaces"),
+		    #"Expanded ModelsSnapshots" = Table.ExpandListColumn(#"Expanded RequiredWorkspaces", "ModelsSnapshots")
+		in
+		    #"Expanded ModelsSnapshots"
+		```
+	lineageTag: fda577a8-713d-4332-be31-3edb9f6c713f
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

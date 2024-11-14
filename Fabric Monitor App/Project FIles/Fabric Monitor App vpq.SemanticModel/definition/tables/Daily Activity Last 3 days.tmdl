@@ -1,0 +1,264 @@
+table 'Daily Activity Last 3 days'
+	lineageTag: c2d28402-e780-4b62-b895-5cf505f9c1e3
+
+	column Id
+		dataType: string
+		lineageTag: 60d87ebb-03e5-411f-bddb-dec6f82e7eae
+		summarizeBy: none
+		sourceColumn: Id
+
+		annotation SummarizationSetBy = Automatic
+
+	column RecordType
+		dataType: string
+		lineageTag: 9a4a14b1-787f-4be5-95ce-55e78835fd7b
+		summarizeBy: none
+		sourceColumn: RecordType
+
+		annotation SummarizationSetBy = Automatic
+
+	column CreationTime
+		dataType: string
+		lineageTag: a77e7e9f-ae1d-4b6a-b424-9167879c8068
+		summarizeBy: none
+		sourceColumn: CreationTime
+
+		annotation SummarizationSetBy = Automatic
+
+	column Operation
+		dataType: string
+		lineageTag: c55a42e1-5d5f-40c6-89d7-ef3267674f69
+		summarizeBy: none
+		sourceColumn: Operation
+
+		annotation SummarizationSetBy = Automatic
+
+	column OrganizationId
+		dataType: string
+		lineageTag: f76bbb23-3af4-49a2-ace8-5e922b2a862d
+		summarizeBy: none
+		sourceColumn: OrganizationId
+
+		annotation SummarizationSetBy = Automatic
+
+	column UserType
+		dataType: string
+		lineageTag: 991cc975-13c9-41ce-abf1-5faeb0992485
+		summarizeBy: none
+		sourceColumn: UserType
+
+		annotation SummarizationSetBy = Automatic
+
+	column UserKey
+		dataType: string
+		lineageTag: e4d91b2c-9d5d-4a56-8465-61e8a4959dc8
+		summarizeBy: none
+		sourceColumn: UserKey
+
+		annotation SummarizationSetBy = Automatic
+
+	column Workload
+		dataType: string
+		lineageTag: 7ae57c71-7271-4dd2-b60f-e543d476e236
+		summarizeBy: none
+		sourceColumn: Workload
+
+		annotation SummarizationSetBy = Automatic
+
+	column ResultStatus
+		dataType: string
+		lineageTag: 96e92fec-5a10-4398-a9b9-8abf53f6c2c7
+		summarizeBy: none
+		sourceColumn: ResultStatus
+
+		annotation SummarizationSetBy = Automatic
+
+	column UserId
+		dataType: string
+		lineageTag: 18ae2695-696c-4d1d-910b-ca23235c6037
+		summarizeBy: none
+		sourceColumn: UserId
+
+		annotation SummarizationSetBy = Automatic
+
+	column ClientIP
+		dataType: string
+		lineageTag: 3f880d6e-9567-44bf-a81f-2665b1f58851
+		summarizeBy: none
+		sourceColumn: ClientIP
+
+		annotation SummarizationSetBy = Automatic
+
+	column UserAgent
+		dataType: string
+		lineageTag: 07b330bc-25ef-4050-a4dd-fa58728733d8
+		summarizeBy: none
+		sourceColumn: UserAgent
+
+		annotation SummarizationSetBy = Automatic
+
+	column Activity
+		dataType: string
+		lineageTag: b6154409-3df7-4ffe-a5b6-f875afed1bf0
+		summarizeBy: none
+		sourceColumn: Activity
+
+		annotation SummarizationSetBy = Automatic
+
+	column WorkSpaceName
+		dataType: string
+		lineageTag: 4801e5ee-caec-4742-931b-d58939da8a80
+		summarizeBy: none
+		sourceColumn: WorkSpaceName
+
+		annotation SummarizationSetBy = Automatic
+
+	column WorkspaceId
+		dataType: string
+		lineageTag: 2ab1eddb-296b-4676-a22e-665f5fd4c892
+		summarizeBy: none
+		sourceColumn: WorkspaceId
+
+		annotation SummarizationSetBy = Automatic
+
+	column ObjectId
+		dataType: string
+		lineageTag: 4aae9fad-9bb3-4449-8cf6-0de0bdcbc446
+		summarizeBy: none
+		sourceColumn: ObjectId
+
+		annotation SummarizationSetBy = Automatic
+
+	column RequestId
+		dataType: string
+		lineageTag: ea671a22-556e-4db9-8520-f709cf2c6d12
+		summarizeBy: none
+		sourceColumn: RequestId
+
+		annotation SummarizationSetBy = Automatic
+
+	column ObjectType
+		dataType: string
+		lineageTag: ba7de82f-a5d5-41d3-a823-29d0a892db14
+		summarizeBy: none
+		sourceColumn: ObjectType
+
+		annotation SummarizationSetBy = Automatic
+
+	column ObjectDisplayName
+		dataType: string
+		lineageTag: 5dd5c738-3df8-4948-bc0f-63dacc0c3ef2
+		summarizeBy: none
+		sourceColumn: ObjectDisplayName
+
+		annotation SummarizationSetBy = Automatic
+
+	column Experience
+		dataType: string
+		lineageTag: ff0064a4-33d9-4584-93b9-0d9202a9e292
+		summarizeBy: none
+		sourceColumn: Experience
+
+		annotation SummarizationSetBy = Automatic
+
+	column RefreshEnforcementPolicy
+		dataType: string
+		lineageTag: ba747505-51fe-4340-83e7-6898962330c0
+		summarizeBy: none
+		sourceColumn: RefreshEnforcementPolicy
+
+		annotation SummarizationSetBy = Automatic
+
+	column IsSuccess
+		dataType: string
+		lineageTag: d0728b61-e3b7-425b-b0fc-5835706cb919
+		summarizeBy: none
+		sourceColumn: IsSuccess
+
+		annotation SummarizationSetBy = Automatic
+
+	column ActivityId
+		dataType: string
+		lineageTag: 7e215cc0-262d-48f9-add3-01eaecef24f0
+		summarizeBy: none
+		sourceColumn: ActivityId
+
+		annotation SummarizationSetBy = Automatic
+
+	column RequiredWorkspaces
+		dataType: string
+		lineageTag: ffcc6d11-eb15-45dd-bc46-4370ba7b40ad
+		summarizeBy: none
+		sourceColumn: RequiredWorkspaces
+
+		annotation SummarizationSetBy = Automatic
+
+	column IncludeSubartifacts
+		dataType: string
+		lineageTag: bd2b68f6-4f5c-40a6-b4e5-21441a591fc2
+		summarizeBy: none
+		sourceColumn: IncludeSubartifacts
+
+		annotation SummarizationSetBy = Automatic
+
+	column IncludeExpressions
+		dataType: string
+		lineageTag: 8c35b49a-dd15-4c9a-8f68-a6965db952e4
+		summarizeBy: none
+		sourceColumn: IncludeExpressions
+
+		annotation SummarizationSetBy = Automatic
+
+	column Lineage
+		dataType: string
+		lineageTag: 61448c34-1895-4f81-83d2-9fca5a4e9ac9
+		summarizeBy: none
+		sourceColumn: Lineage
+
+		annotation SummarizationSetBy = Automatic
+
+	column DatasourceDetails
+		dataType: string
+		lineageTag: ed1403a1-24f1-447c-9679-979a6d0fd625
+		summarizeBy: none
+		sourceColumn: DatasourceDetails
+
+		annotation SummarizationSetBy = Automatic
+
+	column ModelsSnapshots
+		dataType: string
+		lineageTag: 02da6a9a-70e2-45a0-a502-3915f5a502ff
+		summarizeBy: none
+		sourceColumn: ModelsSnapshots
+
+		annotation SummarizationSetBy = Automatic
+
+	column ExportEventStartDateTimeParameter
+		dataType: string
+		lineageTag: 8b70cbf9-3d44-4911-acde-93d649e016df
+		summarizeBy: none
+		sourceColumn: ExportEventStartDateTimeParameter
+
+		annotation SummarizationSetBy = Automatic
+
+	column ExportEventEndDateTimeParameter
+		dataType: string
+		lineageTag: 2516684d-faff-4da9-b9af-dff27445ed95
+		summarizeBy: none
+		sourceColumn: ExportEventEndDateTimeParameter
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'Daily Activity Last 3 days' = m
+		mode: import
+		source =
+				let
+				    Source = Table.Combine({#"Daily Activity Log_Today", #"Daily Activity Log_Today-1", #"Daily Activity Log_Today-2"}),
+				    #"Filtered Rows" = Table.SelectRows(Source, each ([Id] <> null))
+				in
+				    #"Filtered Rows"
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+
