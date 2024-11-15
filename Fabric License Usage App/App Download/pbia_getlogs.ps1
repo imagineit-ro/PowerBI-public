@@ -12,7 +12,7 @@ Connect-MgGraph -Scopes "User.Read.All", "Directory.Read.All"
 
 $path = "C:\temp\zetatest"
 
-# Set the date range (up to 30 days in the past)
+# Set the date range
 $endDate = Get-Date
 $startDate = $endDate.AddDays(-180)
 
