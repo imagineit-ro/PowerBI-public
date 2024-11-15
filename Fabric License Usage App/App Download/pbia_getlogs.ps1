@@ -1,5 +1,6 @@
 ﻿
 # Install-Module -Name MicrosoftPowerBIMgmt -Scope CurrentUser
+# Install-Module Microsoft.Graph
 #Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser
 #Import-Module MicrosoftPowerBIMgmt
 
@@ -9,7 +10,7 @@ Connect-PowerBIServiceAccount
 # Connect to Microsoft Graph
 Connect-MgGraph -Scopes "User.Read.All", "Directory.Read.All"
 
-$path = "C:\temp\pbiactiv\"
+$path = "C:\temp\zetatest"
 
 # Set the date range (up to 30 days in the past)
 $endDate = Get-Date
@@ -34,9 +35,10 @@ for ($date = $startDate; $date -le $endDate; $date = $date.AddDays(1)) {
 
 }
 
+$outf = $path + "\PowerBIActivityEvents.json"
 
 # Export to JSON as well for comparison
-$allEvents | ConvertTo-Json -Depth 4 | Out-File -FilePath $path + "PowerBIActivityEvents.json" -Force
+$allEvents | ConvertTo-Json -Depth 4 | Out-File -FilePath $outf -Force
 
 Write-Host "Activity events have been saved to PowerBIActivityEvents.json"
 
@@ -81,7 +83,7 @@ foreach ($user in $users) {
 }
 
 # Define the output file path
-$outputFile = $path + "UserLicenses.csv"
+$outputFile = $path + "\UserLicenses.csv"
 
 # Export results to CSV
 $results | Export-Csv -Path $outputFile -NoTypeInformation -Force
